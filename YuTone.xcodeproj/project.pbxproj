@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		044ADCBF18912AC300D3EF25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCBE18912AC300D3EF25 /* Foundation.framework */; };
+		044ADCC118912AC300D3EF25 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCC018912AC300D3EF25 /* CoreGraphics.framework */; };
+		044ADCC318912AC300D3EF25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCC218912AC300D3EF25 /* UIKit.framework */; };
+		044ADCC918912AC300D3EF25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 044ADCC718912AC300D3EF25 /* InfoPlist.strings */; };
+		044ADCCB18912AC300D3EF25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044ADCCA18912AC300D3EF25 /* main.m */; };
+		044ADCCF18912AC300D3EF25 /* YTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044ADCCE18912AC300D3EF25 /* YTAppDelegate.m */; };
+		044ADCD218912AC300D3EF25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044ADCD018912AC300D3EF25 /* Main.storyboard */; };
+		044ADCD518912AC300D3EF25 /* YTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044ADCD418912AC300D3EF25 /* YTViewController.m */; };
+		044ADCD718912AC300D3EF25 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044ADCD618912AC300D3EF25 /* Images.xcassets */; };
+		044ADCDE18912AC300D3EF25 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCDD18912AC300D3EF25 /* XCTest.framework */; };
+		044ADCDF18912AC300D3EF25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCBE18912AC300D3EF25 /* Foundation.framework */; };
+		044ADCE018912AC300D3EF25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCC218912AC300D3EF25 /* UIKit.framework */; };
+		044ADCE818912AC300D3EF25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 044ADCE618912AC300D3EF25 /* InfoPlist.strings */; };
+		044ADCEA18912AC300D3EF25 /* YuToneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 044ADCE918912AC300D3EF25 /* YuToneTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		044ADCE118912AC300D3EF25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 044ADCB318912AC300D3EF25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 044ADCBA18912AC300D3EF25;
+			remoteInfo = YuTone;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		044ADCBB18912AC300D3EF25 /* YuTone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YuTone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		044ADCBE18912AC300D3EF25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		044ADCC018912AC300D3EF25 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		044ADCC218912AC300D3EF25 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		044ADCC618912AC300D3EF25 /* YuTone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YuTone-Info.plist"; sourceTree = "<group>"; };
+		044ADCC818912AC300D3EF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		044ADCCA18912AC300D3EF25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		044ADCCC18912AC300D3EF25 /* YuTone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YuTone-Prefix.pch"; sourceTree = "<group>"; };
+		044ADCCD18912AC300D3EF25 /* YTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTAppDelegate.h; sourceTree = "<group>"; };
+		044ADCCE18912AC300D3EF25 /* YTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTAppDelegate.m; sourceTree = "<group>"; };
+		044ADCD118912AC300D3EF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		044ADCD318912AC300D3EF25 /* YTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTViewController.h; sourceTree = "<group>"; };
+		044ADCD418912AC300D3EF25 /* YTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTViewController.m; sourceTree = "<group>"; };
+		044ADCD618912AC300D3EF25 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		044ADCDC18912AC300D3EF25 /* YuToneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YuToneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		044ADCDD18912AC300D3EF25 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		044ADCE518912AC300D3EF25 /* YuToneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YuToneTests-Info.plist"; sourceTree = "<group>"; };
+		044ADCE718912AC300D3EF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		044ADCE918912AC300D3EF25 /* YuToneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YuToneTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		044ADCB818912AC300D3EF25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044ADCC118912AC300D3EF25 /* CoreGraphics.framework in Frameworks */,
+				044ADCC318912AC300D3EF25 /* UIKit.framework in Frameworks */,
+				044ADCBF18912AC300D3EF25 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		044ADCD918912AC300D3EF25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044ADCDE18912AC300D3EF25 /* XCTest.framework in Frameworks */,
+				044ADCE018912AC300D3EF25 /* UIKit.framework in Frameworks */,
+				044ADCDF18912AC300D3EF25 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		044ADCB218912AC300D3EF25 = {
+			isa = PBXGroup;
+			children = (
+				044ADCC418912AC300D3EF25 /* YuTone */,
+				044ADCE318912AC300D3EF25 /* YuToneTests */,
+				044ADCBD18912AC300D3EF25 /* Frameworks */,
+				044ADCBC18912AC300D3EF25 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		044ADCBC18912AC300D3EF25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				044ADCBB18912AC300D3EF25 /* YuTone.app */,
+				044ADCDC18912AC300D3EF25 /* YuToneTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		044ADCBD18912AC300D3EF25 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				044ADCBE18912AC300D3EF25 /* Foundation.framework */,
+				044ADCC018912AC300D3EF25 /* CoreGraphics.framework */,
+				044ADCC218912AC300D3EF25 /* UIKit.framework */,
+				044ADCDD18912AC300D3EF25 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		044ADCC418912AC300D3EF25 /* YuTone */ = {
+			isa = PBXGroup;
+			children = (
+				044ADCCD18912AC300D3EF25 /* YTAppDelegate.h */,
+				044ADCCE18912AC300D3EF25 /* YTAppDelegate.m */,
+				044ADCD018912AC300D3EF25 /* Main.storyboard */,
+				044ADCD318912AC300D3EF25 /* YTViewController.h */,
+				044ADCD418912AC300D3EF25 /* YTViewController.m */,
+				044ADCD618912AC300D3EF25 /* Images.xcassets */,
+				044ADCC518912AC300D3EF25 /* Supporting Files */,
+			);
+			path = YuTone;
+			sourceTree = "<group>";
+		};
+		044ADCC518912AC300D3EF25 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				044ADCC618912AC300D3EF25 /* YuTone-Info.plist */,
+				044ADCC718912AC300D3EF25 /* InfoPlist.strings */,
+				044ADCCA18912AC300D3EF25 /* main.m */,
+				044ADCCC18912AC300D3EF25 /* YuTone-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		044ADCE318912AC300D3EF25 /* YuToneTests */ = {
+			isa = PBXGroup;
+			children = (
+				044ADCE918912AC300D3EF25 /* YuToneTests.m */,
+				044ADCE418912AC300D3EF25 /* Supporting Files */,
+			);
+			path = YuToneTests;
+			sourceTree = "<group>";
+		};
+		044ADCE418912AC300D3EF25 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				044ADCE518912AC300D3EF25 /* YuToneTests-Info.plist */,
+				044ADCE618912AC300D3EF25 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		044ADCBA18912AC300D3EF25 /* YuTone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 044ADCED18912AC300D3EF25 /* Build configuration list for PBXNativeTarget "YuTone" */;
+			buildPhases = (
+				044ADCB718912AC300D3EF25 /* Sources */,
+				044ADCB818912AC300D3EF25 /* Frameworks */,
+				044ADCB918912AC300D3EF25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YuTone;
+			productName = YuTone;
+			productReference = 044ADCBB18912AC300D3EF25 /* YuTone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		044ADCDB18912AC300D3EF25 /* YuToneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 044ADCF018912AC300D3EF25 /* Build configuration list for PBXNativeTarget "YuToneTests" */;
+			buildPhases = (
+				044ADCD818912AC300D3EF25 /* Sources */,
+				044ADCD918912AC300D3EF25 /* Frameworks */,
+				044ADCDA18912AC300D3EF25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				044ADCE218912AC300D3EF25 /* PBXTargetDependency */,
+			);
+			name = YuToneTests;
+			productName = YuToneTests;
+			productReference = 044ADCDC18912AC300D3EF25 /* YuToneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		044ADCB318912AC300D3EF25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = YT;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Matt;
+				TargetAttributes = {
+					044ADCDB18912AC300D3EF25 = {
+						TestTargetID = 044ADCBA18912AC300D3EF25;
+					};
+				};
+			};
+			buildConfigurationList = 044ADCB618912AC300D3EF25 /* Build configuration list for PBXProject "YuTone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 044ADCB218912AC300D3EF25;
+			productRefGroup = 044ADCBC18912AC300D3EF25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				044ADCBA18912AC300D3EF25 /* YuTone */,
+				044ADCDB18912AC300D3EF25 /* YuToneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		044ADCB918912AC300D3EF25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044ADCD718912AC300D3EF25 /* Images.xcassets in Resources */,
+				044ADCC918912AC300D3EF25 /* InfoPlist.strings in Resources */,
+				044ADCD218912AC300D3EF25 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		044ADCDA18912AC300D3EF25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044ADCE818912AC300D3EF25 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		044ADCB718912AC300D3EF25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044ADCD518912AC300D3EF25 /* YTViewController.m in Sources */,
+				044ADCCB18912AC300D3EF25 /* main.m in Sources */,
+				044ADCCF18912AC300D3EF25 /* YTAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		044ADCD818912AC300D3EF25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044ADCEA18912AC300D3EF25 /* YuToneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		044ADCE218912AC300D3EF25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 044ADCBA18912AC300D3EF25 /* YuTone */;
+			targetProxy = 044ADCE118912AC300D3EF25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		044ADCC718912AC300D3EF25 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				044ADCC818912AC300D3EF25 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		044ADCD018912AC300D3EF25 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				044ADCD118912AC300D3EF25 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		044ADCE618912AC300D3EF25 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				044ADCE718912AC300D3EF25 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		044ADCEB18912AC300D3EF25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		044ADCEC18912AC300D3EF25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		044ADCEE18912AC300D3EF25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YuTone/YuTone-Prefix.pch";
+				INFOPLIST_FILE = "YuTone/YuTone-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		044ADCEF18912AC300D3EF25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YuTone/YuTone-Prefix.pch";
+				INFOPLIST_FILE = "YuTone/YuTone-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		044ADCF118912AC300D3EF25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YuTone.app/YuTone";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YuTone/YuTone-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "YuToneTests/YuToneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		044ADCF218912AC300D3EF25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YuTone.app/YuTone";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YuTone/YuTone-Prefix.pch";
+				INFOPLIST_FILE = "YuToneTests/YuToneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		044ADCB618912AC300D3EF25 /* Build configuration list for PBXProject "YuTone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				044ADCEB18912AC300D3EF25 /* Debug */,
+				044ADCEC18912AC300D3EF25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		044ADCED18912AC300D3EF25 /* Build configuration list for PBXNativeTarget "YuTone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				044ADCEE18912AC300D3EF25 /* Debug */,
+				044ADCEF18912AC300D3EF25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		044ADCF018912AC300D3EF25 /* Build configuration list for PBXNativeTarget "YuToneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				044ADCF118912AC300D3EF25 /* Debug */,
+				044ADCF218912AC300D3EF25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 044ADCB318912AC300D3EF25 /* Project object */;
+}
