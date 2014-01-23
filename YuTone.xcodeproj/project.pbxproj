@@ -112,8 +112,6 @@
 		044ADCC418912AC300D3EF25 /* YuTone */ = {
 			isa = PBXGroup;
 			children = (
-				044ADCCD18912AC300D3EF25 /* YTAppDelegate.h */,
-				044ADCCE18912AC300D3EF25 /* YTAppDelegate.m */,
 				044ADCD018912AC300D3EF25 /* Main.storyboard */,
 				044ADCD318912AC300D3EF25 /* YTViewController.h */,
 				044ADCD418912AC300D3EF25 /* YTViewController.m */,
@@ -126,6 +124,8 @@
 		044ADCC518912AC300D3EF25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				044ADCCD18912AC300D3EF25 /* YTAppDelegate.h */,
+				044ADCCE18912AC300D3EF25 /* YTAppDelegate.m */,
 				044ADCC618912AC300D3EF25 /* YuTone-Info.plist */,
 				044ADCC718912AC300D3EF25 /* InfoPlist.strings */,
 				044ADCCA18912AC300D3EF25 /* main.m */,
