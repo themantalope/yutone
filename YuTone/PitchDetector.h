@@ -20,5 +20,7 @@
            withMaxLagInSec:(float) maxLag
       appendFreqencyToList:(BOOL) appendToFreqList;
 
+@property (strong, nonatomic) NSMutableArray * detectedPitches;
+
 
 @end

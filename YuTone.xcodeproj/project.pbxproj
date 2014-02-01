@@ -21,10 +21,14 @@
 		044ADCE018912AC300D3EF25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCC218912AC300D3EF25 /* UIKit.framework */; };
 		044ADCE818912AC300D3EF25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 044ADCE618912AC300D3EF25 /* InfoPlist.strings */; };
 		044ADCEA18912AC300D3EF25 /* YuToneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 044ADCE918912AC300D3EF25 /* YuToneTests.m */; };
-		04515E59189608C2003A9D06 /* PitchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 04515E54189608C2003A9D06 /* PitchDetector.m */; };
 		04515E5A189608C2003A9D06 /* ind2sub.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04515E55189608C2003A9D06 /* ind2sub.cpp */; };
-		04515E5B189608C2003A9D06 /* AEFunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04515E58189608C2003A9D06 /* AEFunViewController.m */; };
-		04515E5E189608E1003A9D06 /* WienerFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04515E5D189608E1003A9D06 /* WienerFilter.mm */; };
+		04A9725A189C95ED00FFE81E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A97259189C95ED00FFE81E /* Accelerate.framework */; };
+		04A9725B189C95F300FFE81E /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A97256189C959500FFE81E /* libTheAmazingAudioEngine.a */; };
+		04A9725F189C963300FFE81E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A9725E189C963300FFE81E /* AudioToolbox.framework */; };
+		04A97262189C96E400FFE81E /* WienerFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04A97261189C96E400FFE81E /* WienerFilter.mm */; };
+		04A97265189C96ED00FFE81E /* PitchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A97264189C96ED00FFE81E /* PitchDetector.m */; };
+		04A97268189C96F700FFE81E /* EnergyVADSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A97267189C96F700FFE81E /* EnergyVADSystem.m */; };
+		04A9726B189C970900FFE81E /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 04A97269189C970900FFE81E /* TPCircularBuffer.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 044ADCBA18912AC300D3EF25;
 			remoteInfo = YuTone;
+		};
+		04A97255189C959500FFE81E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04A97251189C959400FFE81E /* TheAmazingAudioEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4C215CEC1523A7D500D36CAD;
+			remoteInfo = TheAmazingAudioEngine;
+		};
+		04A97257189C95DB00FFE81E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04A97251189C959400FFE81E /* TheAmazingAudioEngine.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C215CEB1523A7D500D36CAD;
+			remoteInfo = TheAmazingAudioEngine;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -57,14 +75,20 @@
 		044ADCE518912AC300D3EF25 /* YuToneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YuToneTests-Info.plist"; sourceTree = "<group>"; };
 		044ADCE718912AC300D3EF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		044ADCE918912AC300D3EF25 /* YuToneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YuToneTests.m; sourceTree = "<group>"; };
-		04515E53189608C2003A9D06 /* PitchDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchDetector.h; sourceTree = "<group>"; };
-		04515E54189608C2003A9D06 /* PitchDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PitchDetector.m; sourceTree = "<group>"; };
 		04515E55189608C2003A9D06 /* ind2sub.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ind2sub.cpp; sourceTree = "<group>"; };
 		04515E56189608C2003A9D06 /* ind2sub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ind2sub.h; sourceTree = "<group>"; };
-		04515E57189608C2003A9D06 /* AEFunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEFunViewController.h; sourceTree = "<group>"; };
-		04515E58189608C2003A9D06 /* AEFunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEFunViewController.m; sourceTree = "<group>"; };
-		04515E5C189608E1003A9D06 /* WienerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WienerFilter.h; sourceTree = "<group>"; };
-		04515E5D189608E1003A9D06 /* WienerFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WienerFilter.mm; sourceTree = "<group>"; };
+		04A97251189C959400FFE81E /* TheAmazingAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TheAmazingAudioEngine.xcodeproj; path = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine.xcodeproj; sourceTree = "<group>"; };
+		04A97259189C95ED00FFE81E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		04A9725C189C962E00FFE81E /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		04A9725E189C963300FFE81E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		04A97260189C96E400FFE81E /* WienerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WienerFilter.h; sourceTree = "<group>"; };
+		04A97261189C96E400FFE81E /* WienerFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WienerFilter.mm; sourceTree = "<group>"; };
+		04A97263189C96ED00FFE81E /* PitchDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchDetector.h; sourceTree = "<group>"; };
+		04A97264189C96ED00FFE81E /* PitchDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PitchDetector.m; sourceTree = "<group>"; };
+		04A97266189C96F700FFE81E /* EnergyVADSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyVADSystem.h; sourceTree = "<group>"; };
+		04A97267189C96F700FFE81E /* EnergyVADSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnergyVADSystem.m; sourceTree = "<group>"; };
+		04A97269189C970900FFE81E /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
+		04A9726A189C970900FFE81E /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +96,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A9725F189C963300FFE81E /* AudioToolbox.framework in Frameworks */,
+				04A9725B189C95F300FFE81E /* libTheAmazingAudioEngine.a in Frameworks */,
+				04A9725A189C95ED00FFE81E /* Accelerate.framework in Frameworks */,
 				044ADCC118912AC300D3EF25 /* CoreGraphics.framework in Frameworks */,
 				044ADCC318912AC300D3EF25 /* UIKit.framework in Frameworks */,
 				044ADCBF18912AC300D3EF25 /* Foundation.framework in Frameworks */,
@@ -94,6 +121,7 @@
 		044ADCB218912AC300D3EF25 = {
 			isa = PBXGroup;
 			children = (
+				04A97251189C959400FFE81E /* TheAmazingAudioEngine.xcodeproj */,
 				044ADCC418912AC300D3EF25 /* YuTone */,
 				044ADCE318912AC300D3EF25 /* YuToneTests */,
 				044ADCBD18912AC300D3EF25 /* Frameworks */,
@@ -113,6 +141,9 @@
 		044ADCBD18912AC300D3EF25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04A9725E189C963300FFE81E /* AudioToolbox.framework */,
+				04A9725C189C962E00FFE81E /* AudioUnit.framework */,
+				04A97259189C95ED00FFE81E /* Accelerate.framework */,
 				044ADCBE18912AC300D3EF25 /* Foundation.framework */,
 				044ADCC018912AC300D3EF25 /* CoreGraphics.framework */,
 				044ADCC218912AC300D3EF25 /* UIKit.framework */,
@@ -124,15 +155,8 @@
 		044ADCC418912AC300D3EF25 /* YuTone */ = {
 			isa = PBXGroup;
 			children = (
-				04515E53189608C2003A9D06 /* PitchDetector.h */,
-				04515E54189608C2003A9D06 /* PitchDetector.m */,
-				04515E55189608C2003A9D06 /* ind2sub.cpp */,
-				04515E56189608C2003A9D06 /* ind2sub.h */,
-				04515E57189608C2003A9D06 /* AEFunViewController.h */,
-				04515E58189608C2003A9D06 /* AEFunViewController.m */,
+				04A9726C189C991C00FFE81E /* Audio Engine */,
 				044ADCD018912AC300D3EF25 /* Main.storyboard */,
-				04515E5C189608E1003A9D06 /* WienerFilter.h */,
-				04515E5D189608E1003A9D06 /* WienerFilter.mm */,
 				044ADCD318912AC300D3EF25 /* YTViewController.h */,
 				044ADCD418912AC300D3EF25 /* YTViewController.m */,
 				044ADCD618912AC300D3EF25 /* Images.xcassets */,
@@ -172,6 +196,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		04A97252189C959400FFE81E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04A97256189C959500FFE81E /* libTheAmazingAudioEngine.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04A9726C189C991C00FFE81E /* Audio Engine */ = {
+			isa = PBXGroup;
+			children = (
+				04A97266189C96F700FFE81E /* EnergyVADSystem.h */,
+				04A97267189C96F700FFE81E /* EnergyVADSystem.m */,
+				04A97263189C96ED00FFE81E /* PitchDetector.h */,
+				04A97264189C96ED00FFE81E /* PitchDetector.m */,
+				04A97260189C96E400FFE81E /* WienerFilter.h */,
+				04A97261189C96E400FFE81E /* WienerFilter.mm */,
+				04A97269189C970900FFE81E /* TPCircularBuffer.c */,
+				04A9726A189C970900FFE81E /* TPCircularBuffer.h */,
+				04515E55189608C2003A9D06 /* ind2sub.cpp */,
+				04515E56189608C2003A9D06 /* ind2sub.h */,
+			);
+			name = "Audio Engine";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,6 +235,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				04A97258189C95DB00FFE81E /* PBXTargetDependency */,
 			);
 			name = YuTone;
 			productName = YuTone;
@@ -236,6 +286,12 @@
 			mainGroup = 044ADCB218912AC300D3EF25;
 			productRefGroup = 044ADCBC18912AC300D3EF25 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 04A97252189C959400FFE81E /* Products */;
+					ProjectRef = 04A97251189C959400FFE81E /* TheAmazingAudioEngine.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				044ADCBA18912AC300D3EF25 /* YuTone */,
@@ -243,6 +299,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		04A97256189C959500FFE81E /* libTheAmazingAudioEngine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTheAmazingAudioEngine.a;
+			remoteRef = 04A97255189C959500FFE81E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		044ADCB918912AC300D3EF25 /* Resources */ = {
@@ -270,13 +336,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04515E59189608C2003A9D06 /* PitchDetector.m in Sources */,
 				044ADCD518912AC300D3EF25 /* YTViewController.m in Sources */,
-				04515E5B189608C2003A9D06 /* AEFunViewController.m in Sources */,
 				04515E5A189608C2003A9D06 /* ind2sub.cpp in Sources */,
+				04A97262189C96E400FFE81E /* WienerFilter.mm in Sources */,
 				044ADCCB18912AC300D3EF25 /* main.m in Sources */,
+				04A97265189C96ED00FFE81E /* PitchDetector.m in Sources */,
+				04A9726B189C970900FFE81E /* TPCircularBuffer.c in Sources */,
+				04A97268189C96F700FFE81E /* EnergyVADSystem.m in Sources */,
 				044ADCCF18912AC300D3EF25 /* YTAppDelegate.m in Sources */,
-				04515E5E189608E1003A9D06 /* WienerFilter.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +362,11 @@
 			isa = PBXTargetDependency;
 			target = 044ADCBA18912AC300D3EF25 /* YuTone */;
 			targetProxy = 044ADCE118912AC300D3EF25 /* PBXContainerItemProxy */;
+		};
+		04A97258189C95DB00FFE81E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TheAmazingAudioEngine;
+			targetProxy = 04A97257189C95DB00FFE81E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -401,10 +473,12 @@
 		044ADCEE18912AC300D3EF25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YuTone/YuTone-Prefix.pch";
+				HEADER_SEARCH_PATHS = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine;
 				INFOPLIST_FILE = "YuTone/YuTone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -414,10 +488,12 @@
 		044ADCEF18912AC300D3EF25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YuTone/YuTone-Prefix.pch";
+				HEADER_SEARCH_PATHS = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine;
 				INFOPLIST_FILE = "YuTone/YuTone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

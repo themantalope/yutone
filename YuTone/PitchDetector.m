@@ -12,12 +12,8 @@
 
 
 @interface PitchDetector(){
-    DSPSplitComplex * _dataFFT;
-    float * _dataFFTrealp;
-    float * _dataFFTimagp;
-    DSPSplitComplex * _dataFFTconj;
-    float * _dataFFTconjRealp;
-    float * _dataFFTconjImagp;
+    DSPSplitComplex _dataFFT;
+    DSPSplitComplex _dataFFTconj;
     float * _hanningWindowForInput;
     float * _NCCFdata;
     FFTSetup _fftsetup;
@@ -28,7 +24,7 @@
     int _samplingRate;
 }
 
-@property (strong, nonatomic) NSMutableArray * detectedPitches;
+
 
 
 @end
@@ -55,6 +51,7 @@
     self = [super init];
     if (self) {
         [self allocateResourcesWithDataLength:processingBlockSize];
+        self.detectedPitches = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -72,33 +69,29 @@
     self->_fftLength = 1 << self->_fftLog2N;
     self->_fftLengthOver2 = self->_fftLength / 2;
     self->_fftsetup = vDSP_create_fftsetup(self->_fftLog2N, kFFTRadix2);
-    self->_dataFFTrealp = (float *) calloc(self->_fftLengthOver2, sizeof(float));
-    self->_dataFFTimagp = (float *) calloc(self->_fftLengthOver2, sizeof(float));
-    self->_dataFFT->realp = self->_dataFFTrealp;
-    self->_dataFFT->imagp = self->_dataFFTimagp;
-    self->_dataFFTconjRealp = (float *) calloc(self->_fftLengthOver2, sizeof(float));
-    self->_dataFFTconjImagp = (float *) calloc(self->_fftLengthOver2, sizeof(float));
-    self->_dataFFTconj->realp = self->_dataFFTconjRealp;
-    self->_dataFFTconj->imagp = self->_dataFFTconjImagp;
+    self->_dataFFT.realp = (float *) calloc(self->_fftLengthOver2, sizeof(float));
+    self->_dataFFT.imagp = (float *) calloc(self->_fftLengthOver2, sizeof(float));
+    self->_dataFFTconj.realp = (float *) calloc(self->_fftLengthOver2, sizeof(float));
+    self->_dataFFTconj.imagp = (float *) calloc(self->_fftLengthOver2, sizeof(float));
     //now both the fft and the conj vectors have been
     //initialized with all values set to zero
-    vDSP_hann_window(self->_hanningWindowForInput,
+    self->_hanningWindowForInput = (float *) calloc(self->_inputDataLength, sizeof(float));
+    vDSP_hann_window((self->_hanningWindowForInput),
                      self->_inputDataLength,
                      vDSP_HANN_NORM);
-    self->_NCCFdata = calloc(self->_fftLengthOver2,
+    self->_NCCFdata = calloc(self->_fftLength,
                              sizeof(float));
 }
 
 -(void)cleanUpResources
 {
-    free(self->_dataFFT);
-    free(self->_dataFFTconj);
-    free(self->_dataFFTrealp);
-    free(self->_dataFFTimagp);
-    free(self->_dataFFTconjRealp);
-    free(self->_dataFFTconjImagp);
-    free(self->_hanningWindowForInput);
+    free(self->_dataFFT.realp);
+    free(self->_dataFFT.imagp);
+    free(self->_dataFFTconj.realp);
+    free(self->_dataFFTconj.imagp);
     free(self->_NCCFdata);
+    vDSP_destroy_fftsetup(self->_fftsetup);
+    free(self->_hanningWindowForInput);
 }
 
 -(void)dealloc
@@ -144,8 +137,11 @@ float calculatePitchNCCF(id pitchDetectorObj,
                                   1);
     float scalingFactor = powf(arrayNorm, (float) 2.0);
     
-    scalingFactor = 1/scalingFactor;
     
+    
+    
+    scalingFactor = 1/scalingFactor;
+       
     //also get some helper parameters
     
     int minIdx = (int) floorf(minLag * ((float) samplingRate));
@@ -155,24 +151,25 @@ float calculatePitchNCCF(id pitchDetectorObj,
     
     vDSP_vmul(inputData,
               1,
-              THIS->_hanningWindowForInput,
+              (THIS->_hanningWindowForInput),
               1,
               inputData,
               1,
               THIS->_inputDataLength);
     
+    
     //now we can get the data into our fft stuff
     
-    vDSP_ctoz((COMPLEX *) inputData,
+    vDSP_ctoz((DSPComplex *) inputData,
               2,
-              THIS->_dataFFT,
+              &(THIS->_dataFFT),
               1,
-              THIS->_inputDataLength);
+              THIS->_inputDataLength/2);
     
     //let it rip! (harupmh) the forward FFT that is...
     
     vDSP_fft_zrip(THIS->_fftsetup,
-                  THIS->_dataFFT,
+                  &(THIS->_dataFFT),
                   1,
                   THIS->_fftLog2N,
                   kFFTDirection_Forward);
@@ -180,39 +177,44 @@ float calculatePitchNCCF(id pitchDetectorObj,
     //kk, now we have the forward FFT data, copy that into
     //the other complex buffer and then conjugate
     
-    vDSP_zvmov(THIS->_dataFFT,
+    vDSP_zvmov(&THIS->_dataFFT,
                1,
-               THIS->_dataFFTconj,
+               &THIS->_dataFFTconj,
                1,
-               THIS->_fftLength);
+               THIS->_fftLengthOver2);
     
     //found a nice little function that does the conjugation and
     //multiplication in one step
     
-    vDSP_zvcmul(THIS->_dataFFTconj,
+    vDSP_zvcmul(&(THIS->_dataFFTconj),
                 1,
-                THIS->_dataFFT,
+                &(THIS->_dataFFT),
                 1,
-                THIS->_dataFFT,
+                &(THIS->_dataFFT),
                 1,
-                THIS->_fftLength);
+                THIS->_fftLengthOver2);
+    
+    
+    
     
     //so now the multiplied complex conjugate is in the
     //_dataFFT vector, take the IFFT
     
     vDSP_fft_zrip(THIS->_fftsetup,
-                  THIS->_dataFFT,
+                  &(THIS->_dataFFT),
                   1,
                   THIS->_fftLog2N,
                   kFFTDirection_Inverse);
     
     //get the data into a new vector for processing
     
-    vDSP_ztoc(THIS->_dataFFT,
+    vDSP_ztoc(&(THIS->_dataFFT),
               1,
               (COMPLEX *)THIS->_NCCFdata,
               2,
               THIS->_fftLengthOver2);
+    
+
     
     
     //normalize it
@@ -240,8 +242,25 @@ float calculatePitchNCCF(id pitchDetectorObj,
     
     f0 = 1/f0Per;
     
+    
+    
+    //clear out the vectors
+    
+    vDSP_vclr(THIS->_dataFFT.realp, 1, THIS->_fftLengthOver2);
+    vDSP_vclr(THIS->_dataFFT.imagp, 1, THIS->_fftLengthOver2);
+    
+    vDSP_vclr(THIS->_dataFFTconj.realp, 1, THIS->_fftLengthOver2);
+    vDSP_vclr(THIS->_dataFFTconj.imagp, 1, THIS->_fftLengthOver2);
+    
+    vDSP_vclr(THIS->_NCCFdata, 1, THIS->_fftLength);
+    
+    
+    
     return f0;
 }
+
+
+
 
 
 @end

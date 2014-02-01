@@ -94,7 +94,7 @@ void filterDataCfunction(id wienerFilterObj, float * inputData, float * output)
     
     cblas_sgemm(CblasColMajor,
                 CblasNoTrans,
-                CblasTrans,
+                CblasNoTrans,
                 THIS->_n,
                 THIS->_n,
                 1,
@@ -131,7 +131,7 @@ void filterDataCfunction(id wienerFilterObj, float * inputData, float * output)
     //calculate mu
     
     THIS->_mu = 1/traceRxx;
-    THIS->_mu *= (float) -2.0;//for the gradient descent step
+    THIS->_mu *= (float) 2.0;//for the gradient descent step
     
     
     //set the w vector to zero
@@ -194,7 +194,10 @@ void filterDataCfunction(id wienerFilterObj, float * inputData, float * output)
     }
     
     //now the result is stored in output
-    
+    vDSP_vclr(THIS->_w, 1, THIS->_n);
+    vDSP_vclr(THIS->_err, 1, THIS->_n);
+    vDSP_vclr(THIS->_rxy, 1, THIS->_n);
+    vDSP_vclr(THIS->_Rxx, 1, THIS->_n * THIS->_n);
     
 }
 
