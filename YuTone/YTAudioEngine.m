@@ -207,29 +207,23 @@ static TPCircularBuffer sharedBuffer;
     if (availFrames >= kBlockSizeForProcessing) {
         //do the processing
         
-        dispatch_queue_t analysisQueue = dispatch_queue_create("com.YTAudioEngine.analysis", NULL);
+        //filter
+        [self.wienerFilter filterData:self->_analysisBufferPreFilter withOutput:_analysisBufferPostFilter];
         
-        dispatch_async(analysisQueue,^{
-           //filter
-            [self.wienerFilter filterData:self->_analysisBufferPreFilter withOutput:_analysisBufferPostFilter];
-            
-            //analyze
-            
-            [self.pitchDetector calculatePitchNCCF:self->_analysisBufferPostFilter withMinLagInSec:kMinLag withMaxLagInSec:kMaxLag];
-            
-            [self.energyDetector detectEnergy:self->_analysisBufferPostFilter andAppendToList:YES];
-            
-            //now that we are done consume the buffer
-            
-            TPCircularBufferConsume(&sharedBuffer, kBlockSizeForProcessing * sizeof(float));
-            
-            
-            //reset our buffers
-            vDSP_vclr(self->_analysisBufferPostFilter, 1, kBlockSizeForProcessing);
-            vDSP_vclr(self->_analysisBufferPreFilter, 1, kBlockSizeForProcessing);
-            
-            
-        });
+        //analyze
+        
+        [self.pitchDetector calculatePitchNCCF:self->_analysisBufferPostFilter withMinLagInSec:kMinLag withMaxLagInSec:kMaxLag];
+        
+        [self.energyDetector detectEnergy:self->_analysisBufferPostFilter andAppendToList:YES];
+        
+        //now that we are done consume the buffer
+        
+        TPCircularBufferConsume(&sharedBuffer, kBlockSizeForProcessing * sizeof(float));
+        
+        
+        //reset our buffers
+        vDSP_vclr(self->_analysisBufferPostFilter, 1, kBlockSizeForProcessing);
+        vDSP_vclr(self->_analysisBufferPreFilter, 1, kBlockSizeForProcessing);
         
     }
     
