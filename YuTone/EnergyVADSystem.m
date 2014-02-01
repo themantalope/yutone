@@ -12,6 +12,9 @@
 
 @interface EnergyVADSystem(){
     int _kProcessingBlockSize;
+    int _totalBlockSize;
+    int _overlap;
+    float * _dataBlock;
 }
 
 
@@ -53,10 +56,17 @@
 }
 
 -(instancetype)initWithProcessingBlockSize:(NSUInteger)size
+                           andFrameOverlap:(NSUInteger) overlap
+                        withTotalBlockSize:(NSUInteger) totalBlockSize;
 {
     self = [super init];
     if (self) {
         self->_kProcessingBlockSize = (int) size;
+        self->_overlap = (int) overlap;
+        self->_totalBlockSize = (int) totalBlockSize;
+        
+        [self allocateResources];
+        
     }
     
     return self;
@@ -91,17 +101,21 @@ float detectEnergy(float * array, int arrayLength)
     return  energy;
 }
 
--(float)detectEnergy:(float *) array
+-(void)detectEnergy:(float *) array
        andAppendToList:(BOOL) yesOrNo
 {
-    int arrayLength = self->_kProcessingBlockSize;
-    float energy = detectEnergy(array, arrayLength);
     
-    if (yesOrNo) {
-        [self.packetEnergies addObject:[NSNumber numberWithFloat:energy]];
+    
+    for (int i = 0; i < self->_totalBlockSize - self->_kProcessingBlockSize; i += self->_overlap) {
+        memcpy(self->_dataBlock, array + i, self->_kProcessingBlockSize * sizeof(float));
+        float e = detectEnergy(self->_dataBlock, self->_kProcessingBlockSize);
+        
+        if (yesOrNo) {
+            [self.packetEnergies addObject:[NSNumber numberWithFloat:e]];
+        }
+
+        
     }
-    
-    return energy;
     
 }
 
@@ -214,6 +228,22 @@ void decisionVAD(float * energiesArray,
     free(earray);
     free(decisions);
     
+}
+
+
+-(void)allocateResources;
+{
+    self->_dataBlock = calloc(self->_kProcessingBlockSize, sizeof(float));
+}
+
+-(void)cleanUpResources
+{
+    free(self->_dataBlock);
+}
+
+-(void)dealloc
+{
+    [self cleanUpResources];
 }
 
 @end

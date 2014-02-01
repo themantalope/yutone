@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0444E693189C9DCC00F67838 /* AudioRecieverCircWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444E692189C9DCC00F67838 /* AudioRecieverCircWriter.m */; };
+		0444E696189C9E8E00F67838 /* YTAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444E695189C9E8E00F67838 /* YTAudioEngine.m */; };
 		044ADCBF18912AC300D3EF25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCBE18912AC300D3EF25 /* Foundation.framework */; };
 		044ADCC118912AC300D3EF25 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCC018912AC300D3EF25 /* CoreGraphics.framework */; };
 		044ADCC318912AC300D3EF25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCC218912AC300D3EF25 /* UIKit.framework */; };
@@ -56,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0444E691189C9DCC00F67838 /* AudioRecieverCircWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecieverCircWriter.h; sourceTree = "<group>"; };
+		0444E692189C9DCC00F67838 /* AudioRecieverCircWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecieverCircWriter.m; sourceTree = "<group>"; };
+		0444E694189C9E8E00F67838 /* YTAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTAudioEngine.h; sourceTree = "<group>"; };
+		0444E695189C9E8E00F67838 /* YTAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTAudioEngine.m; sourceTree = "<group>"; };
 		044ADCBB18912AC300D3EF25 /* YuTone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YuTone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044ADCBE18912AC300D3EF25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		044ADCC018912AC300D3EF25 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -207,8 +213,12 @@
 		04A9726C189C991C00FFE81E /* Audio Engine */ = {
 			isa = PBXGroup;
 			children = (
+				0444E694189C9E8E00F67838 /* YTAudioEngine.h */,
+				0444E695189C9E8E00F67838 /* YTAudioEngine.m */,
 				04A97266189C96F700FFE81E /* EnergyVADSystem.h */,
 				04A97267189C96F700FFE81E /* EnergyVADSystem.m */,
+				0444E691189C9DCC00F67838 /* AudioRecieverCircWriter.h */,
+				0444E692189C9DCC00F67838 /* AudioRecieverCircWriter.m */,
 				04A97263189C96ED00FFE81E /* PitchDetector.h */,
 				04A97264189C96ED00FFE81E /* PitchDetector.m */,
 				04A97260189C96E400FFE81E /* WienerFilter.h */,
@@ -341,9 +351,11 @@
 				04A97262189C96E400FFE81E /* WienerFilter.mm in Sources */,
 				044ADCCB18912AC300D3EF25 /* main.m in Sources */,
 				04A97265189C96ED00FFE81E /* PitchDetector.m in Sources */,
+				0444E696189C9E8E00F67838 /* YTAudioEngine.m in Sources */,
 				04A9726B189C970900FFE81E /* TPCircularBuffer.c in Sources */,
 				04A97268189C96F700FFE81E /* EnergyVADSystem.m in Sources */,
 				044ADCCF18912AC300D3EF25 /* YTAppDelegate.m in Sources */,
+				0444E693189C9DCC00F67838 /* AudioRecieverCircWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

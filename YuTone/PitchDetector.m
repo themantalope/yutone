@@ -16,12 +16,16 @@
     DSPSplitComplex _dataFFTconj;
     float * _hanningWindowForInput;
     float * _NCCFdata;
+    float * _dataBlock;
     FFTSetup _fftsetup;
     int _inputDataLength;
     int _fftLength;
     int _fftLengthOver2;
     int _fftLog2N;
-    int _samplingRate;
+    int _overlap;
+    int _diffInBlockSizeAndOverlap;
+    int _totalDataBlockLength;
+    float _samplingRate;
 }
 
 
@@ -46,12 +50,20 @@
     return _detectedPitches;
 }
 
--(instancetype)initAndAllocate:(NSUInteger)processingBlockSize
+-(instancetype)initAndAllocate:(NSUInteger) processingBlockSize
+              withFrameOverlap:(NSUInteger) overlap
+          withTotalBlockLength:(NSUInteger) totalLengthofBlock
+          withDataSamplingRate:(NSNumber *) samplingRate;
 {
     self = [super init];
     if (self) {
         [self allocateResourcesWithDataLength:processingBlockSize];
         self.detectedPitches = [[NSMutableArray alloc] init];
+        
+        self->_overlap = (int) overlap;
+        self->_diffInBlockSizeAndOverlap = (int) (processingBlockSize - overlap);
+        self->_totalDataBlockLength = totalLengthofBlock;
+        self->_samplingRate = [samplingRate floatValue];
     }
     
     return self;
@@ -81,6 +93,7 @@
                      vDSP_HANN_NORM);
     self->_NCCFdata = calloc(self->_fftLength,
                              sizeof(float));
+    self->_dataBlock = calloc(self->_inputDataLength, sizeof(float));
 }
 
 -(void)cleanUpResources
@@ -99,29 +112,11 @@
     [self cleanUpResources];
 }
 
--(float)calculatePitchNCCF:(float *) inputData
-              withSampling:(int) samplingRate
-           withMinLagInSec:(float) minLag
-           withMaxLagInSec:(float) maxLag
-      appendFreqencyToList:(BOOL) appendToFreqList
-{
-    float f0 = calculatePitchNCCF(self,
-                                  inputData,
-                                  samplingRate,
-                                  minLag,
-                                  maxLag);
-    
-    if (appendToFreqList) {
-        [self.detectedPitches addObject:[NSNumber numberWithFloat:f0]];
-    }
-    
-    return f0;
-}
 
 
 float calculatePitchNCCF(id pitchDetectorObj,
                          float * inputData,
-                         int samplingRate,
+                         float samplingRate,
                          float minLag,
                          float maxLag)
 {
@@ -259,6 +254,36 @@ float calculatePitchNCCF(id pitchDetectorObj,
     return f0;
 }
 
+-(void)calculatePitchNCCF:(float *)inputData withSamplingRate:(float)samplingRate withMinLagInSec:(float)minLag withMaxLagInSec:(float)maxLag withOverlapInFrames:(int)frames
+{
+    
+    
+    
+    for (int i = 0;
+         i < self->_totalDataBlockLength - self->_inputDataLength;
+         i += self->_diffInBlockSizeAndOverlap) {
+        
+        //first copy data from input to the block
+        
+        memcpy(self->_dataBlock, inputData + i, self->_inputDataLength * sizeof(float));
+        
+       float f0 = calculatePitchNCCF(self,
+                                self->_dataBlock,
+                                self->_samplingRate,
+                                     minLag,
+                                     maxLag);
+        
+        [self.detectedPitches addObject:[NSNumber numberWithFloat:f0]];
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+}
 
 
 

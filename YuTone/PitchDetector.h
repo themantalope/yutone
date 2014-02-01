@@ -12,15 +12,19 @@
 
 //main init function
 
--(instancetype)initAndAllocate:(NSUInteger) processingBlockSize;
+-(instancetype)initAndAllocate:(NSUInteger) processingBlockSize
+              withFrameOverlap:(NSUInteger) overlap
+          withTotalBlockLength:(NSUInteger) totalLengthofBlock
+          withDataSamplingRate:(NSNumber *) samplingRate;
 
--(float)calculatePitchNCCF:(float *) inputData
-              withSampling:(int) samplingRate
-           withMinLagInSec:(float) minLag
-           withMaxLagInSec:(float) maxLag
-      appendFreqencyToList:(BOOL) appendToFreqList;
+
+-(void)calculatePitchNCCF:(float *) inputData
+         withSamplingRate:(float) samplingRate
+          withMinLagInSec:(float) minLag
+          withMaxLagInSec:(float) maxLag
+      withOverlapInFrames:(int) frames;
+
 
 @property (strong, nonatomic) NSMutableArray * detectedPitches;
-
 
 @end

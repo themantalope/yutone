@@ -11,8 +11,12 @@
 @interface EnergyVADSystem : NSObject
 
 -(void)determineVAD;
--(instancetype)initWithProcessingBlockSize:(NSUInteger) size;
--(float)detectEnergy:(float *) array
+-(instancetype)initWithProcessingBlockSize:(NSUInteger)size
+                           andFrameOverlap:(NSUInteger) overlap
+                        withTotalBlockSize:(NSUInteger) totalBlockSize;
+
+
+-(void)detectEnergy:(float *) array
      andAppendToList:(BOOL) yesOrNo;
 
 @property (strong, nonatomic) NSMutableArray * packetEnergies;
