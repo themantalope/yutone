@@ -105,6 +105,7 @@
     free(self->_NCCFdata);
     vDSP_destroy_fftsetup(self->_fftsetup);
     free(self->_hanningWindowForInput);
+    free(self->_dataBlock);
 }
 
 -(void)dealloc
@@ -254,7 +255,7 @@ float calculatePitchNCCF(id pitchDetectorObj,
     return f0;
 }
 
--(void)calculatePitchNCCF:(float *)inputData withSamplingRate:(float)samplingRate withMinLagInSec:(float)minLag withMaxLagInSec:(float)maxLag withOverlapInFrames:(int)frames
+-(void)calculatePitchNCCF:(float *)inputData withMinLagInSec:(float)minLag withMaxLagInSec:(float)maxLag
 {
     
     
@@ -276,10 +277,6 @@ float calculatePitchNCCF(id pitchDetectorObj,
         [self.detectedPitches addObject:[NSNumber numberWithFloat:f0]];
         
     }
-    
-    
-    
-    
     
     
     

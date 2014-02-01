@@ -19,10 +19,8 @@
 
 
 -(void)calculatePitchNCCF:(float *) inputData
-         withSamplingRate:(float) samplingRate
           withMinLagInSec:(float) minLag
-          withMaxLagInSec:(float) maxLag
-      withOverlapInFrames:(int) frames;
+          withMaxLagInSec:(float) maxLag;
 
 
 @property (strong, nonatomic) NSMutableArray * detectedPitches;
