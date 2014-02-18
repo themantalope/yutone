@@ -24,6 +24,8 @@
 		044ADCE818912AC300D3EF25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 044ADCE618912AC300D3EF25 /* InfoPlist.strings */; };
 		044ADCEA18912AC300D3EF25 /* YuToneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 044ADCE918912AC300D3EF25 /* YuToneTests.m */; };
 		04515E5A189608C2003A9D06 /* ind2sub.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04515E55189608C2003A9D06 /* ind2sub.cpp */; };
+		0482DDF418B309EF00E941FA /* YTDictionaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0482DDF318B309EF00E941FA /* YTDictionaryEntry.m */; };
+		0482DDF818B30A2600E941FA /* cedict_ts_wpym.u8.csv in Resources */ = {isa = PBXBuildFile; fileRef = 0482DDF718B30A2600E941FA /* cedict_ts_wpym.u8.csv */; };
 		04A9725A189C95ED00FFE81E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A97259189C95ED00FFE81E /* Accelerate.framework */; };
 		04A9725B189C95F300FFE81E /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A97256189C959500FFE81E /* libTheAmazingAudioEngine.a */; };
 		04A9725F189C963300FFE81E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A9725E189C963300FFE81E /* AudioToolbox.framework */; };
@@ -83,6 +85,9 @@
 		044ADCE918912AC300D3EF25 /* YuToneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YuToneTests.m; sourceTree = "<group>"; };
 		04515E55189608C2003A9D06 /* ind2sub.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ind2sub.cpp; sourceTree = "<group>"; };
 		04515E56189608C2003A9D06 /* ind2sub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ind2sub.h; sourceTree = "<group>"; };
+		0482DDF218B309EF00E941FA /* YTDictionaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTDictionaryEntry.h; sourceTree = "<group>"; };
+		0482DDF318B309EF00E941FA /* YTDictionaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTDictionaryEntry.m; sourceTree = "<group>"; };
+		0482DDF718B30A2600E941FA /* cedict_ts_wpym.u8.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cedict_ts_wpym.u8.csv; sourceTree = "<group>"; };
 		04A97251189C959400FFE81E /* TheAmazingAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TheAmazingAudioEngine.xcodeproj; path = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine.xcodeproj; sourceTree = "<group>"; };
 		04A97259189C95ED00FFE81E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		04A9725C189C962E00FFE81E /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
@@ -161,10 +166,12 @@
 		044ADCC418912AC300D3EF25 /* YuTone */ = {
 			isa = PBXGroup;
 			children = (
+				0482DDF618B30A1A00E941FA /* Dictionary */,
 				04A9726C189C991C00FFE81E /* Audio Engine */,
 				044ADCD018912AC300D3EF25 /* Main.storyboard */,
 				044ADCD318912AC300D3EF25 /* YTViewController.h */,
 				044ADCD418912AC300D3EF25 /* YTViewController.m */,
+				0482DDF518B309FD00E941FA /* Dictionary Model */,
 				044ADCD618912AC300D3EF25 /* Images.xcassets */,
 				044ADCC518912AC300D3EF25 /* Supporting Files */,
 			);
@@ -200,6 +207,23 @@
 				044ADCE618912AC300D3EF25 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0482DDF518B309FD00E941FA /* Dictionary Model */ = {
+			isa = PBXGroup;
+			children = (
+				0482DDF218B309EF00E941FA /* YTDictionaryEntry.h */,
+				0482DDF318B309EF00E941FA /* YTDictionaryEntry.m */,
+			);
+			name = "Dictionary Model";
+			sourceTree = "<group>";
+		};
+		0482DDF618B30A1A00E941FA /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				0482DDF718B30A2600E941FA /* cedict_ts_wpym.u8.csv */,
+			);
+			name = Dictionary;
 			sourceTree = "<group>";
 		};
 		04A97252189C959400FFE81E /* Products */ = {
@@ -325,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0482DDF818B30A2600E941FA /* cedict_ts_wpym.u8.csv in Resources */,
 				044ADCD718912AC300D3EF25 /* Images.xcassets in Resources */,
 				044ADCC918912AC300D3EF25 /* InfoPlist.strings in Resources */,
 				044ADCD218912AC300D3EF25 /* Main.storyboard in Resources */,
@@ -353,6 +378,7 @@
 				04A97265189C96ED00FFE81E /* PitchDetector.m in Sources */,
 				0444E696189C9E8E00F67838 /* YTAudioEngine.m in Sources */,
 				04A9726B189C970900FFE81E /* TPCircularBuffer.c in Sources */,
+				0482DDF418B309EF00E941FA /* YTDictionaryEntry.m in Sources */,
 				04A97268189C96F700FFE81E /* EnergyVADSystem.m in Sources */,
 				044ADCCF18912AC300D3EF25 /* YTAppDelegate.m in Sources */,
 				0444E693189C9DCC00F67838 /* AudioRecieverCircWriter.m in Sources */,

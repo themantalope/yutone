@@ -57,6 +57,11 @@
     free(self->_rxy);
 }
 
+-(void)dealloc
+{
+    [self cleanUpResources];
+}
+
 -(instancetype)initAndAllocate:(NSUInteger)processingBlockSize
 {
     self = [super init];

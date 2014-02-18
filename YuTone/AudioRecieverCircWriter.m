@@ -62,7 +62,7 @@ static void receiverCallback(id receiver,
     BOOL success = AEFloatConverterToFloatBufferList(THIS->_converter, audio, tempBuff, frames);
     
     if (success) {
-        TPCircularBufferProduceBytes((THIS->_circBuff), tempBuff->mBuffers[0].mData, frames);
+        TPCircularBufferProduceBytes(THIS->_circBuff, tempBuff->mBuffers[0].mData, frames);
     }
 
 }
