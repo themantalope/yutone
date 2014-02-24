@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YTDictionaryEntry.h"
 
-@interface YTViewController : UIViewController
+
+@interface YTViewController : UIViewController <UITextViewDelegate>
+
+@property (strong, nonatomic) YTDictionaryEntry * entry;
+
+@property (strong, nonatomic) NSMutableAttributedString * displayText;
+
+-(void)configureDisplayText;
 
 @end

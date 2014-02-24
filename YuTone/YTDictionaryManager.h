@@ -11,6 +11,7 @@
 @interface YTDictionaryManager : DictionarySearcher
 
 @property (strong, nonatomic) NSMutableArray * latestSearchResults;
+@property (strong, nonatomic) NSString * latestKeyword;
 
 -(instancetype)initWithDictionaryURL:(NSURL *)URL;
 

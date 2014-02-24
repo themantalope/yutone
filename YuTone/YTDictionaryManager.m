@@ -10,7 +10,7 @@
 #import "YTDictionaryEntry.h"
 
 #define YTDICTIONARY_ENTRYDELIM "\n"
-#define YTDICTIONARY_SECTIONDEIM ","
+#define YTDICTIONARY_SECTIONDELIM "*"
 #define YTDICTIONARY_REGEXOPTIONS NSRegularExpressionCaseInsensitive
 #define YTDICTIONARY_ENCODING NSUTF8StringEncoding
 //just make sure all dictionaries match these properties
@@ -23,6 +23,15 @@
 
 
 @implementation YTDictionaryManager
+
+-(NSString *)latestKeyword
+{
+    if (!_latestKeyword) {
+        _latestKeyword = [[NSString alloc] init];
+    }
+    
+    return _latestKeyword;
+}
 
 -(NSMutableArray *)latestSearchResults
 {
@@ -56,11 +65,16 @@
 
 -(void)getEntriesForKeyword:(NSString *)keyword
 {
+    
+    printf("searching...");
+    
     [self resetSearchResults];
     
     NSArray * searchResultsAsStrings = [self getDictionaryEntriesForKeyword:keyword withEntryDelimiter:[YTDictionaryManager entryDelimiterAsNSString] forURL:self.dictionaryURL withEncoding:YTDICTIONARY_ENCODING withRegExOptions:YTDICTIONARY_REGEXOPTIONS];
     
     //now make them into YTDictionary entries
+    
+    self.latestKeyword = keyword;
     
     for (int i = 0; i < [searchResultsAsStrings count]; i++) {
         [self.latestSearchResults addObject:[self createYTDictionaryEntryFromTextLine:searchResultsAsStrings[i]]];
@@ -74,7 +88,7 @@
 
 +(NSString *)sectionDelimterAsNSString
 {
-    return [NSString stringWithFormat:@"%s", YTDICTIONARY_SECTIONDEIM];
+    return [NSString stringWithFormat:@"%s", YTDICTIONARY_SECTIONDELIM];
 }
 
 -(YTDictionaryEntry *)createYTDictionaryEntryFromTextLine:(NSString *) stringEntry
@@ -88,7 +102,7 @@
 
 -(void)resetSearchResults
 {
-    self.latestSearchResults = [[NSMutableArray alloc] init];
+    [self.latestSearchResults removeAllObjects];
 }
 
 

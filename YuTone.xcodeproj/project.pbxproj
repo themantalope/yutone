@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040EA5A018BBAC5900A2E4C5 /* cedict_ts_wpym.u8.starsv in Resources */ = {isa = PBXBuildFile; fileRef = 040EA59F18BBAC5900A2E4C5 /* cedict_ts_wpym.u8.starsv */; };
 		0444E693189C9DCC00F67838 /* AudioRecieverCircWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444E692189C9DCC00F67838 /* AudioRecieverCircWriter.m */; };
 		0444E696189C9E8E00F67838 /* YTAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444E695189C9E8E00F67838 /* YTAudioEngine.m */; };
 		044ADCBF18912AC300D3EF25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044ADCBE18912AC300D3EF25 /* Foundation.framework */; };
@@ -25,7 +26,6 @@
 		044ADCEA18912AC300D3EF25 /* YuToneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 044ADCE918912AC300D3EF25 /* YuToneTests.m */; };
 		04515E5A189608C2003A9D06 /* ind2sub.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04515E55189608C2003A9D06 /* ind2sub.cpp */; };
 		0482DDF418B309EF00E941FA /* YTDictionaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0482DDF318B309EF00E941FA /* YTDictionaryEntry.m */; };
-		0482DDF818B30A2600E941FA /* cedict_ts_wpym.u8.csv in Resources */ = {isa = PBXBuildFile; fileRef = 0482DDF718B30A2600E941FA /* cedict_ts_wpym.u8.csv */; };
 		04A9725A189C95ED00FFE81E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A97259189C95ED00FFE81E /* Accelerate.framework */; };
 		04A9725B189C95F300FFE81E /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A97256189C959500FFE81E /* libTheAmazingAudioEngine.a */; };
 		04A9725F189C963300FFE81E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A9725E189C963300FFE81E /* AudioToolbox.framework */; };
@@ -33,6 +33,7 @@
 		04A97265189C96ED00FFE81E /* PitchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A97264189C96ED00FFE81E /* PitchDetector.m */; };
 		04A97268189C96F700FFE81E /* EnergyVADSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A97267189C96F700FFE81E /* EnergyVADSystem.m */; };
 		04A9726B189C970900FFE81E /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 04A97269189C970900FFE81E /* TPCircularBuffer.c */; };
+		04CD558D18B6090A00EE660F /* SearchResultsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CD558C18B6090A00EE660F /* SearchResultsTableVC.m */; };
 		04DE3C1418B44F7F00347463 /* TextFileSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE3C1318B44F7F00347463 /* TextFileSearcher.m */; };
 		04DE3C1718B4568600347463 /* TextFileCheckingResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE3C1618B4568600347463 /* TextFileCheckingResult.m */; };
 		04F5396318B484E800C99B9B /* DictionarySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5396218B484E800C99B9B /* DictionarySearcher.m */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040EA59F18BBAC5900A2E4C5 /* cedict_ts_wpym.u8.starsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cedict_ts_wpym.u8.starsv; sourceTree = "<group>"; };
 		0444E691189C9DCC00F67838 /* AudioRecieverCircWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecieverCircWriter.h; sourceTree = "<group>"; };
 		0444E692189C9DCC00F67838 /* AudioRecieverCircWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecieverCircWriter.m; sourceTree = "<group>"; };
 		0444E694189C9E8E00F67838 /* YTAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTAudioEngine.h; sourceTree = "<group>"; };
@@ -91,7 +93,6 @@
 		04515E56189608C2003A9D06 /* ind2sub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ind2sub.h; sourceTree = "<group>"; };
 		0482DDF218B309EF00E941FA /* YTDictionaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTDictionaryEntry.h; sourceTree = "<group>"; };
 		0482DDF318B309EF00E941FA /* YTDictionaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTDictionaryEntry.m; sourceTree = "<group>"; };
-		0482DDF718B30A2600E941FA /* cedict_ts_wpym.u8.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cedict_ts_wpym.u8.csv; sourceTree = "<group>"; };
 		04A97251189C959400FFE81E /* TheAmazingAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TheAmazingAudioEngine.xcodeproj; path = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine.xcodeproj; sourceTree = "<group>"; };
 		04A97259189C95ED00FFE81E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		04A9725C189C962E00FFE81E /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
@@ -104,6 +105,8 @@
 		04A97267189C96F700FFE81E /* EnergyVADSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnergyVADSystem.m; sourceTree = "<group>"; };
 		04A97269189C970900FFE81E /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
 		04A9726A189C970900FFE81E /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
+		04CD558B18B6090A00EE660F /* SearchResultsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsTableVC.h; sourceTree = "<group>"; };
+		04CD558C18B6090A00EE660F /* SearchResultsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsTableVC.m; sourceTree = "<group>"; };
 		04DE3C1218B44F7F00347463 /* TextFileSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFileSearcher.h; sourceTree = "<group>"; };
 		04DE3C1318B44F7F00347463 /* TextFileSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFileSearcher.m; sourceTree = "<group>"; };
 		04DE3C1518B4568600347463 /* TextFileCheckingResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFileCheckingResult.h; sourceTree = "<group>"; };
@@ -178,9 +181,11 @@
 		044ADCC418912AC300D3EF25 /* YuTone */ = {
 			isa = PBXGroup;
 			children = (
-				0482DDF618B30A1A00E941FA /* Dictionary */,
+				0482DDF618B30A1A00E941FA /* Dictionary File */,
 				04A9726C189C991C00FFE81E /* Audio Engine */,
 				044ADCD018912AC300D3EF25 /* Main.storyboard */,
+				04CD558B18B6090A00EE660F /* SearchResultsTableVC.h */,
+				04CD558C18B6090A00EE660F /* SearchResultsTableVC.m */,
 				044ADCD318912AC300D3EF25 /* YTViewController.h */,
 				044ADCD418912AC300D3EF25 /* YTViewController.m */,
 				0482DDF518B309FD00E941FA /* Dictionary Model */,
@@ -238,12 +243,12 @@
 			name = "Dictionary Model";
 			sourceTree = "<group>";
 		};
-		0482DDF618B30A1A00E941FA /* Dictionary */ = {
+		0482DDF618B30A1A00E941FA /* Dictionary File */ = {
 			isa = PBXGroup;
 			children = (
-				0482DDF718B30A2600E941FA /* cedict_ts_wpym.u8.csv */,
+				040EA59F18BBAC5900A2E4C5 /* cedict_ts_wpym.u8.starsv */,
 			);
-			name = Dictionary;
+			name = "Dictionary File";
 			sourceTree = "<group>";
 		};
 		04A97252189C959400FFE81E /* Products */ = {
@@ -369,9 +374,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0482DDF818B30A2600E941FA /* cedict_ts_wpym.u8.csv in Resources */,
 				044ADCD718912AC300D3EF25 /* Images.xcassets in Resources */,
 				044ADCC918912AC300D3EF25 /* InfoPlist.strings in Resources */,
+				040EA5A018BBAC5900A2E4C5 /* cedict_ts_wpym.u8.starsv in Resources */,
 				044ADCD218912AC300D3EF25 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +406,7 @@
 				04F5396318B484E800C99B9B /* DictionarySearcher.m in Sources */,
 				04DE3C1718B4568600347463 /* TextFileCheckingResult.m in Sources */,
 				0444E696189C9E8E00F67838 /* YTAudioEngine.m in Sources */,
+				04CD558D18B6090A00EE660F /* SearchResultsTableVC.m in Sources */,
 				04A9726B189C970900FFE81E /* TPCircularBuffer.c in Sources */,
 				0482DDF418B309EF00E941FA /* YTDictionaryEntry.m in Sources */,
 				04A97268189C96F700FFE81E /* EnergyVADSystem.m in Sources */,
