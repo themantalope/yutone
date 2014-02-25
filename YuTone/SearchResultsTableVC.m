@@ -26,6 +26,7 @@
 @interface SearchResultsTableVC ()
 
 @property (strong, nonatomic) YTDictionaryManager * dictionaryManager;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -68,6 +69,9 @@
     self.searchDisplayController.delegate = self;
     
     [self.searchDisplayController.searchResultsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CELL_ID];
+    
+    
+    self.searchDisplayController.searchResultsDelegate = self;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -216,9 +220,18 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([sender isKindOfClass:[UITableViewCell class]]) {
+
         
+        NSIndexPath * SBidxPath = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
         
-        NSIndexPath * idxPath = [self.tableView indexPathForCell:sender];
+        NSIndexPath * TBidxPath = [self.tableView indexPathForCell:sender];
+        NSIndexPath * idxPath = [[NSIndexPath alloc] init];
+        if (!SBidxPath) {
+            idxPath = TBidxPath;
+        }
+        else{
+            idxPath = SBidxPath;
+        }
         
         
             if ([segue.identifier isEqualToString:CELL_PUSH_SEGUE_ID]) {

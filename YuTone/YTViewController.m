@@ -54,14 +54,7 @@
 {
     [super viewWillAppear:animated];
     
-    NSLog(@"self.textInfoDisplay.attText = %@", self.textInfoDisplay.attributedText);
     
-    NSLog(@"self.textInfoDisplay.text = %@", self.textInfoDisplay.text);
-    NSLog(@"%hhd", [self.textInfoDisplay.text isEqualToString:@"placeholder"]);
-    
-    if ([self.textInfoDisplay.text isEqualToString:@"placeholder"]) {
-        self.displayText = [YTViewController defaultTextDisplay];
-    }
     
     [self updateUI];
 }
@@ -69,7 +62,6 @@
 -(void)updateUI
 {
     self.textInfoDisplay.attributedText = [self.displayText attributedSubstringFromRange:NSMakeRange(0, [self.displayText length])];
-    NSLog(@"%@", self.textInfoDisplay.attributedText);
 }
 
 - (void)viewDidLoad
