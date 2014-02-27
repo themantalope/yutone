@@ -254,9 +254,9 @@
     
     UIActivityIndicatorView * spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     spinner.hidesWhenStopped = YES;
-    spinner.center = self.searchDisplayController.searchBar.center;
+    spinner.center = self.tableView.center;
     
-    [self.searchDisplayController.searchBar addSubview:spinner];
+    [self.tableView addSubview:spinner];
     [spinner startAnimating];
     
     dispatch_queue_t queue = dispatch_queue_create("com.dictionary.search", NULL);

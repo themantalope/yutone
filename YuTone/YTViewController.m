@@ -18,6 +18,9 @@
 
 @property (nonatomic) YTAudioEngine * audioEngine;
 
+@property (strong, nonatomic) IBOutlet CPTGraphHostingView *hostView;
+
+
 @end
 
 @implementation YTViewController
@@ -50,11 +53,17 @@
     return _displayText;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    
+    [self initPlot];
     
     [self updateUI];
 }
@@ -68,7 +77,12 @@
 {
     [super viewDidLoad];
     
+    
+    
+    
     self.textInfoDisplay.delegate = self;
+    
+    self.audioEngine = [[YTAudioEngine alloc] init];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -126,6 +140,110 @@
     
     return [text copy];
 }
+
+
+#pragma mark - plot source methods
+
+-(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
+{
+    return [self.audioEngine.pitchDetector.detectedPitches count];
+}
+
+-(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx
+{
+    return [self.audioEngine.pitchDetector.detectedPitches objectAtIndex:idx];
+}
+
+
+#pragma mark - plotting view stuff
+
+
+-(void)initPlot
+{
+    
+    [self configureHost];
+    [self configureGraph];
+    [self configurePlots];
+    [self configureAxes];
+}
+
+-(void)configureHost
+{
+    
+    NSLog(@"self.view.bounds.something = %f", self.hostView.bounds.origin.x);
+    
+    self.hostView.allowPinchScaling = YES;
+    
+    [self.view addSubview:self.hostView];
+    
+    
+}
+
+-(void)configureGraph
+{
+    CPTXYGraph * graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
+    
+    [graph applyTheme:[CPTTheme themeNamed:kCPTSlateTheme]];
+    
+    self.hostView.hostedGraph = graph;
+    
+    [graph.plotAreaFrame setPaddingLeft:030.0f];
+    [graph.plotAreaFrame setPaddingRight:30.0f];
+    
+    graph.defaultPlotSpace.allowsUserInteraction = YES;
+    
+    
+}
+
+-(void)configurePlots
+{
+    CPTGraph * graph = self.hostView.hostedGraph;
+    
+    CPTXYPlotSpace * plotspace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
+    
+    //make a scatter plot
+    
+    CPTScatterPlot * pitchPlot = [[CPTScatterPlot alloc] init];
+    
+    pitchPlot.dataSource = self;
+    
+    UIColor * viewTint = self.view.tintColor;
+    
+    CGColorRef color = [viewTint CGColor];
+    
+    CPTColor * plotColor = [CPTColor colorWithCGColor:color];
+    
+    [plotspace scaleToFitPlots:[NSArray arrayWithObject:pitchPlot]];
+    
+    CPTMutableLineStyle * linestyle = [pitchPlot.dataLineStyle mutableCopy];
+    linestyle.lineWidth = 1.5f;
+    linestyle.lineColor = plotColor;
+    
+}
+
+-(void)configureAxes
+{
+    
+}
+
+
+
+#pragma mark - recording
+- (IBAction)startRecord:(UIButton *)sender
+{
+    
+    [self.audioEngine beginRecording];
+    
+}
+
+
+- (IBAction)stopRecording:(UIButton *)sender
+{
+    [self.audioEngine endRecording];
+    
+    //[self initPlot];
+}
+
 
 
 @end

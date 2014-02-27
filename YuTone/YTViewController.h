@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "YTDictionaryEntry.h"
+#import "CorePlot-CocoaTouch.h"
 
 
-@interface YTViewController : UIViewController <UITextViewDelegate>
+@interface YTViewController : UIViewController <UITextViewDelegate, CPTPlotDataSource>
 
 @property (strong, nonatomic) YTDictionaryEntry * entry;
 

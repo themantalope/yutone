@@ -11,9 +11,9 @@
 #import <Accelerate/Accelerate.h>
 #import "TheAmazingAudioEngine.h"
 #import "AudioRecieverCircWriter.h"
-#import "PitchDetector.h"
+
 #import "WienerFilter.h"
-#import "EnergyVADSystem.h"
+
 
 const int kBlockSizeForProcessing = 1024;
 const int kAnalysisBlockSize = 512;
@@ -35,9 +35,8 @@ static TPCircularBuffer sharedBuffer;
 @property (strong, nonatomic) AEAudioController * controller;
 @property (strong, nonatomic) AEAudioUnitFilter * lowpassFilter;
 @property (strong, nonatomic) AudioRecieverCircWriter * reciever;
-@property (strong, nonatomic) PitchDetector * pitchDetector;
 @property (strong, nonatomic) WienerFilter * wienerFilter;
-@property (strong, nonatomic) EnergyVADSystem * energyDetector;
+
 @property (strong, nonatomic) NSTimer * analysisTimer;
 
 @end

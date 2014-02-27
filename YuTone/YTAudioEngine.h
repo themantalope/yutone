@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PitchDetector.h"
+#import "EnergyVADSystem.h"
 
 @interface YTAudioEngine : NSObject
 
+@property (strong, nonatomic) PitchDetector * pitchDetector;
+
+@property (strong, nonatomic) EnergyVADSystem * energyDetector;
 
 //main initialization functon
 -(instancetype)init;
