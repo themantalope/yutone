@@ -12,9 +12,10 @@
 
 @interface YTAudioEngine : NSObject
 
-@property (strong, nonatomic) PitchDetector * pitchDetector;
 
-@property (strong, nonatomic) EnergyVADSystem * energyDetector;
+@property (strong, nonatomic) NSArray * detectedPitches;
+@property (strong, nonatomic) NSArray * detectedPitchesTimes;
+
 
 //main initialization functon
 -(instancetype)init;

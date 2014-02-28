@@ -16,11 +16,12 @@
 
 
 const int kBlockSizeForProcessing = 1024;
-const int kAnalysisBlockSize = 512;
-const int kAnalysisOverlap = 256;
+const int kAnalysisBlockSize = kBlockSizeForProcessing/2;
+const int kAnalysisOverlap = 64;
 const float kMinLag = 1.25/1000.0;
 const float kMaxLag = 25.0/1000.0;
 const float timerFireInterval = 512.0/44100.0;
+const float samplingRate = 44100.0f;
 
 static TPCircularBuffer sharedBuffer;
 
@@ -29,6 +30,7 @@ static TPCircularBuffer sharedBuffer;
     BOOL _bufferHasBeenInit;
     float * _analysisBufferPreFilter;
     float * _analysisBufferPostFilter;
+    int _numSamplesAnalyzed;
     
 }
 
@@ -36,16 +38,45 @@ static TPCircularBuffer sharedBuffer;
 @property (strong, nonatomic) AEAudioUnitFilter * lowpassFilter;
 @property (strong, nonatomic) AudioRecieverCircWriter * reciever;
 @property (strong, nonatomic) WienerFilter * wienerFilter;
-
+@property (strong, nonatomic) PitchDetector * pitchDetector;
+@property (strong, nonatomic) EnergyVADSystem * energyDetector;
 @property (strong, nonatomic) NSTimer * analysisTimer;
+
+
+@property (strong, nonatomic) NSMutableArray * debuggingArray;
 
 @end
 
 @implementation YTAudioEngine
 
+-(NSMutableArray *)debuggingArray
+{
+    if (!_debuggingArray) {
+        _debuggingArray = [[NSMutableArray alloc] init];
+    }
+    
+    return _debuggingArray;
+}
 
 //first implement the lazy instantiation
 //of instance variables
+
+-(NSArray *)detectedPitches
+{
+    if (!_detectedPitches) {
+        _detectedPitches = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:0.0f], nil];
+    }
+    
+    return _detectedPitches;
+}
+
+-(NSArray *)detectedPitchesTimes
+{
+    if (!_detectedPitchesTimes) {
+        _detectedPitchesTimes = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:0.0f], nil];    }
+    
+    return _detectedPitchesTimes;
+}
 
 -(AEAudioController *)controller
 {
@@ -174,9 +205,17 @@ static TPCircularBuffer sharedBuffer;
     [self.controller addInputFilter:self.lowpassFilter];
 }
 
+-(void)resetDataArrays
+{
+    self.detectedPitches = [[NSMutableArray alloc] init];
+    self.detectedPitchesTimes = [[NSMutableArray alloc] init];
+}
+
 
 -(void)beginRecording
 {
+    
+    
     self.analysisTimer = [NSTimer timerWithTimeInterval:timerFireInterval target:self selector:@selector(filterAndMeasureParameters:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.analysisTimer forMode:NSRunLoopCommonModes];
     
@@ -191,6 +230,7 @@ static TPCircularBuffer sharedBuffer;
     
     [self.analysisTimer invalidate];
     self.analysisTimer = nil;
+    [self determineDetectedPitchesAndTimes];
 }
 
 -(void)filterAndMeasureParameters:(NSTimer *) timer
@@ -211,9 +251,14 @@ static TPCircularBuffer sharedBuffer;
         
         //analyze
         
-        [self.pitchDetector calculatePitchNCCF:self->_analysisBufferPostFilter withMinLagInSec:kMinLag withMaxLagInSec:kMaxLag];
+        [self.pitchDetector calculatePitchNCCF:self->_analysisBufferPreFilter withMinLagInSec:kMinLag withMaxLagInSec:kMaxLag];
         
         [self.energyDetector detectEnergy:self->_analysisBufferPostFilter andAppendToList:YES];
+        
+        
+        for (int i = 0; i < kBlockSizeForProcessing; i++) {
+            [self.debuggingArray addObject:[NSNumber numberWithFloat:self->_analysisBufferPostFilter[i]]];
+        }
         
         //now that we are done consume the buffer
         
@@ -223,13 +268,89 @@ static TPCircularBuffer sharedBuffer;
         //reset our buffers
         vDSP_vclr(self->_analysisBufferPostFilter, 1, kBlockSizeForProcessing);
         vDSP_vclr(self->_analysisBufferPreFilter, 1, kBlockSizeForProcessing);
-        
+        self->_numSamplesAnalyzed += kBlockSizeForProcessing;
     }
     
     
     
 }
 
+-(void)determineDetectedPitchesAndTimes
+{
+    
+    [self resetDataArrays];
+    //first calculate the total time of recorded data
+    
+    float analyzedTime = ((float) self->_numSamplesAnalyzed)/(samplingRate);
+    
+    NSNumber * nAnalysisPoints =[NSNumber numberWithInt:[self.pitchDetector.detectedPitches count]];
+    
+    float timeSpacing = (analyzedTime)/([nAnalysisPoints floatValue]);
+    float start = 0.0f;
+    //create an NSMutableArray with the times in there
+    
+    NSMutableArray * times = [[NSMutableArray alloc] initWithCapacity:[nAnalysisPoints integerValue]];
+    
+    for (int i = 0 ; i < [nAnalysisPoints intValue]; i++) {
+        [times addObject:[NSNumber numberWithFloat:(start + timeSpacing)]];
+        start += timeSpacing;
+    }
+    
+    //next figure out what points pass the treshold,
+    //get that from the energy detector
+    
+    [self.energyDetector determineVAD];
+    
+    NSMutableArray * pitches = [self.pitchDetector.detectedPitches mutableCopy];
+    
+    for (int i = 0; i < [pitches count]; i++) {
+        if (![self.energyDetector.VADdecisions objectAtIndex:i]) {
+            //if it didn't pass the vad test
+            [pitches removeObjectAtIndex:i];
+            [times removeObjectAtIndex:i];
+        }
+    }
+    
+    //set our properties
+    
+    self.detectedPitches = [pitches copy];
+    self.detectedPitchesTimes = [times copy];
+    
+    
+    [self printArray:self.detectedPitches withPre:@"detected pitches"];
+    [self writeArray:self.detectedPitches toFile:@"pitches.xml"];
+    [self printArray:self.detectedPitchesTimes withPre:@"detected times"];
+    [self writeArray:self.detectedPitchesTimes toFile:@"times.xml"];
+    [self printArray:self.energyDetector.VADdecisions withPre:@"vad decisions"];
+    [self writeArray:[self.debuggingArray copy] toFile:@"filteredData.xml"];
+    
+    
+}
+
+#pragma mark - debugging functions
+
+-(void)printArray:(NSArray *)array withPre:(NSString*) prefix
+{
+    for (int i = 0; i < [array count]; i++) {
+        float cur = [(NSNumber *) [array objectAtIndex:i] floatValue];
+        printf("%s [%d]: %f\n", [prefix UTF8String],i, cur);
+    }
+}
+
+
+-(void)writeArray:(NSArray *)array toFile:(NSString *)filename
+{
+    //get a path
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@",documentsDirectory,filename];
+    
+    [array writeToFile:filePath atomically:YES];
+    NSLog(@"%@", filePath);
+}
+
 
 
 @end
+
+
