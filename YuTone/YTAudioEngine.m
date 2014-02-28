@@ -207,10 +207,14 @@ static TPCircularBuffer sharedBuffer;
 
 -(void)resetDataArrays
 {
-    self.detectedPitches = [[NSMutableArray alloc] init];
-    self.detectedPitchesTimes = [[NSMutableArray alloc] init];
+    self.detectedPitches = nil;
+    self.detectedPitchesTimes = nil;
 }
 
+-(void)resetPitchDetectorData
+{
+    [self.pitchDetector.detectedPitches removeAllObjects];
+}
 
 -(void)beginRecording
 {
@@ -315,14 +319,9 @@ static TPCircularBuffer sharedBuffer;
     
     self.detectedPitches = [pitches copy];
     self.detectedPitchesTimes = [times copy];
+
+    [self resetPitchDetectorData];
     
-    
-    [self printArray:self.detectedPitches withPre:@"detected pitches"];
-    [self writeArray:self.detectedPitches toFile:@"pitches.xml"];
-    [self printArray:self.detectedPitchesTimes withPre:@"detected times"];
-    [self writeArray:self.detectedPitchesTimes toFile:@"times.xml"];
-    [self printArray:self.energyDetector.VADdecisions withPre:@"vad decisions"];
-    [self writeArray:[self.debuggingArray copy] toFile:@"filteredData.xml"];
     
     
 }

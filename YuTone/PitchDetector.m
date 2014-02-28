@@ -259,7 +259,6 @@ float calculatePitchNCCF(id pitchDetectorObj,
 {
     
     
-    
     for (int i = 0;
          i < self->_totalDataBlockLength - self->_inputDataLength;
          i += self->_diffInBlockSizeAndOverlap) {

@@ -164,7 +164,7 @@
 {
     NSString * key = (fieldEnum == CPTScatterPlotFieldX ? @"x" : @"y");
     NSNumber * num = [[self.dataForPlot objectAtIndex:idx] valueForKey:key];
-    NSLog(@"num : %@ key : %@", num, key);
+    //NSLog(@"num : %@ key : %@", num, key);
     return num;
 }
 
@@ -400,8 +400,7 @@
         return;
     }
     else{
-        
-        self.dataForPlot = [[NSMutableArray alloc] init];
+        self.dataForPlot = nil;
         
         //make the dictionaries...
         for (int i = 0; i < [xArray count]; i++) {
@@ -419,11 +418,20 @@
 -(void)dataVisualization
 {
     
-    [self configureDataForPlotWithXData:self.audioEngine.detectedPitchesTimes andYData:self.audioEngine.detectedPitches];
+    self.hostView.allowPinchScaling = YES;
+    
+    self.hostView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    
+    [self.view addSubview:self.hostView];
+    
+    [self configureDataForPlotWithXData:[self.audioEngine.detectedPitchesTimes copy] andYData:[self.audioEngine.detectedPitches copy]];
+
     
     CPTXYGraph * graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
     
     self.hostView.hostedGraph = graph;
+    
+    
     
     CPTXYPlotSpace * plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     float yMin = [self findMinNSNumberInArray:self.audioEngine.detectedPitches];
@@ -484,7 +492,7 @@
     
     
     
-    
+    [graph reloadData];
     
     
     
