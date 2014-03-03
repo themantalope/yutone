@@ -24,5 +24,6 @@
 
 
 @property (strong, nonatomic) NSMutableArray * detectedPitches;
+@property (strong, nonatomic) NSMutableArray * detectedCorrCoeffs;
 
 @end

@@ -15,9 +15,9 @@
 #import "WienerFilter.h"
 
 
-const int kBlockSizeForProcessing = 1024;
+const int kBlockSizeForProcessing = 4096;
 const int kAnalysisBlockSize = kBlockSizeForProcessing/2;
-const int kAnalysisOverlap = 64;
+const int kAnalysisOverlap = 32;
 const float kMinLag = 1.25/1000.0;
 const float kMaxLag = 25.0/1000.0;
 const float timerFireInterval = 512.0/44100.0;
@@ -39,24 +39,12 @@ static TPCircularBuffer sharedBuffer;
 @property (strong, nonatomic) AudioRecieverCircWriter * reciever;
 @property (strong, nonatomic) WienerFilter * wienerFilter;
 @property (strong, nonatomic) PitchDetector * pitchDetector;
-@property (strong, nonatomic) EnergyVADSystem * energyDetector;
+@property (strong, nonatomic) AudioEnergyDetectionSystem * energyDetector;
 @property (strong, nonatomic) NSTimer * analysisTimer;
-
-
-@property (strong, nonatomic) NSMutableArray * debuggingArray;
 
 @end
 
 @implementation YTAudioEngine
-
--(NSMutableArray *)debuggingArray
-{
-    if (!_debuggingArray) {
-        _debuggingArray = [[NSMutableArray alloc] init];
-    }
-    
-    return _debuggingArray;
-}
 
 //first implement the lazy instantiation
 //of instance variables
@@ -151,10 +139,10 @@ static TPCircularBuffer sharedBuffer;
     return _wienerFilter;
 }
 
--(EnergyVADSystem *)energyDetector
+-(AudioEnergyDetectionSystem *)energyDetector
 {
     if (!_energyDetector) {
-        _energyDetector = [[EnergyVADSystem alloc]initWithProcessingBlockSize:kAnalysisBlockSize andFrameOverlap:kAnalysisOverlap withTotalBlockSize:kBlockSizeForProcessing];
+        _energyDetector = [[AudioEnergyDetectionSystem alloc]initWithProcessingBlockSize:kAnalysisBlockSize andFrameOverlap:kAnalysisOverlap withTotalBlockSize:kBlockSizeForProcessing];
     }
     
     return _energyDetector;
@@ -214,6 +202,7 @@ static TPCircularBuffer sharedBuffer;
 -(void)resetPitchDetectorData
 {
     [self.pitchDetector.detectedPitches removeAllObjects];
+    [self.pitchDetector.detectedCorrCoeffs removeAllObjects];
 }
 
 -(void)beginRecording
@@ -235,6 +224,8 @@ static TPCircularBuffer sharedBuffer;
     [self.analysisTimer invalidate];
     self.analysisTimer = nil;
     [self determineDetectedPitchesAndTimes];
+    NSLog(@"detected pitches length : %lu", (unsigned long)[self.detectedPitches count]);
+    NSLog(@"detected energies length : %lu", (unsigned long) [self.energyDetector.VADdecisions count]);
 }
 
 -(void)filterAndMeasureParameters:(NSTimer *) timer
@@ -260,9 +251,6 @@ static TPCircularBuffer sharedBuffer;
         [self.energyDetector detectEnergy:self->_analysisBufferPostFilter andAppendToList:YES];
         
         
-        for (int i = 0; i < kBlockSizeForProcessing; i++) {
-            [self.debuggingArray addObject:[NSNumber numberWithFloat:self->_analysisBufferPostFilter[i]]];
-        }
         
         //now that we are done consume the buffer
         
@@ -319,6 +307,9 @@ static TPCircularBuffer sharedBuffer;
     
     self.detectedPitches = [pitches copy];
     self.detectedPitchesTimes = [times copy];
+    
+    [self writeArray:self.energyDetector.VADdecisions toFile:@"vaddecisions.txt"];
+    [self writeArray:self.energyDetector.packetEnergies toFile:@"energies.txt"];
 
     [self resetPitchDetectorData];
     

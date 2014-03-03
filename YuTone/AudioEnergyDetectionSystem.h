@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EnergyVADSystem : NSObject
+@interface AudioEnergyDetectionSystem : NSObject
 
 -(void)determineVAD;
 -(instancetype)initWithProcessingBlockSize:(NSUInteger)size

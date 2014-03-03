@@ -27,13 +27,16 @@
 		044ADCE818912AC300D3EF25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 044ADCE618912AC300D3EF25 /* InfoPlist.strings */; };
 		044ADCEA18912AC300D3EF25 /* YuToneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 044ADCE918912AC300D3EF25 /* YuToneTests.m */; };
 		04515E5A189608C2003A9D06 /* ind2sub.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04515E55189608C2003A9D06 /* ind2sub.cpp */; };
+		046AFC7918C4DC3B004B22AA /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046AFC7818C4DC3B004B22AA /* opencv2.framework */; };
+		046AFC7B18C4DC49004B22AA /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 046AFC7A18C4DC49004B22AA /* libc++.dylib */; };
+		046AFC7D18C4DC63004B22AA /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 046AFC7C18C4DC63004B22AA /* libstdc++.dylib */; };
 		0482DDF418B309EF00E941FA /* YTDictionaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0482DDF318B309EF00E941FA /* YTDictionaryEntry.m */; };
 		04A9725A189C95ED00FFE81E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A97259189C95ED00FFE81E /* Accelerate.framework */; };
 		04A9725B189C95F300FFE81E /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A97256189C959500FFE81E /* libTheAmazingAudioEngine.a */; };
 		04A9725F189C963300FFE81E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A9725E189C963300FFE81E /* AudioToolbox.framework */; };
 		04A97262189C96E400FFE81E /* WienerFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04A97261189C96E400FFE81E /* WienerFilter.mm */; };
 		04A97265189C96ED00FFE81E /* PitchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A97264189C96ED00FFE81E /* PitchDetector.m */; };
-		04A97268189C96F700FFE81E /* EnergyVADSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A97267189C96F700FFE81E /* EnergyVADSystem.m */; };
+		04A97268189C96F700FFE81E /* AudioEnergyDetectionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A97267189C96F700FFE81E /* AudioEnergyDetectionSystem.m */; };
 		04A9726B189C970900FFE81E /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 04A97269189C970900FFE81E /* TPCircularBuffer.c */; };
 		04CD558D18B6090A00EE660F /* SearchResultsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CD558C18B6090A00EE660F /* SearchResultsTableVC.m */; };
 		04DE3C1418B44F7F00347463 /* TextFileSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE3C1318B44F7F00347463 /* TextFileSearcher.m */; };
@@ -173,6 +176,9 @@
 		044ADCE918912AC300D3EF25 /* YuToneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YuToneTests.m; sourceTree = "<group>"; };
 		04515E55189608C2003A9D06 /* ind2sub.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ind2sub.cpp; sourceTree = "<group>"; };
 		04515E56189608C2003A9D06 /* ind2sub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ind2sub.h; sourceTree = "<group>"; };
+		046AFC7818C4DC3B004B22AA /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../Resources/opencv2.framework/opencv2.framework; sourceTree = "<group>"; };
+		046AFC7A18C4DC49004B22AA /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		046AFC7C18C4DC63004B22AA /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		0482DDF218B309EF00E941FA /* YTDictionaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTDictionaryEntry.h; sourceTree = "<group>"; };
 		0482DDF318B309EF00E941FA /* YTDictionaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTDictionaryEntry.m; sourceTree = "<group>"; };
 		04A97251189C959400FFE81E /* TheAmazingAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TheAmazingAudioEngine.xcodeproj; path = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine.xcodeproj; sourceTree = "<group>"; };
@@ -183,8 +189,8 @@
 		04A97261189C96E400FFE81E /* WienerFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WienerFilter.mm; sourceTree = "<group>"; };
 		04A97263189C96ED00FFE81E /* PitchDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchDetector.h; sourceTree = "<group>"; };
 		04A97264189C96ED00FFE81E /* PitchDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PitchDetector.m; sourceTree = "<group>"; };
-		04A97266189C96F700FFE81E /* EnergyVADSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyVADSystem.h; sourceTree = "<group>"; };
-		04A97267189C96F700FFE81E /* EnergyVADSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnergyVADSystem.m; sourceTree = "<group>"; };
+		04A97266189C96F700FFE81E /* AudioEnergyDetectionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioEnergyDetectionSystem.h; sourceTree = "<group>"; };
+		04A97267189C96F700FFE81E /* AudioEnergyDetectionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioEnergyDetectionSystem.m; sourceTree = "<group>"; };
 		04A97269189C970900FFE81E /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
 		04A9726A189C970900FFE81E /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
 		04CD558B18B6090A00EE660F /* SearchResultsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsTableVC.h; sourceTree = "<group>"; };
@@ -204,6 +210,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046AFC7D18C4DC63004B22AA /* libstdc++.dylib in Frameworks */,
+				046AFC7B18C4DC49004B22AA /* libc++.dylib in Frameworks */,
+				046AFC7918C4DC3B004B22AA /* opencv2.framework in Frameworks */,
 				0439EBED18BE4103009A3669 /* QuartzCore.framework in Frameworks */,
 				04A9725F189C963300FFE81E /* AudioToolbox.framework in Frameworks */,
 				04A9725B189C95F300FFE81E /* libTheAmazingAudioEngine.a in Frameworks */,
@@ -345,6 +354,9 @@
 		044ADCBD18912AC300D3EF25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				046AFC7C18C4DC63004B22AA /* libstdc++.dylib */,
+				046AFC7A18C4DC49004B22AA /* libc++.dylib */,
+				046AFC7818C4DC3B004B22AA /* opencv2.framework */,
 				0439EBEC18BE4103009A3669 /* QuartzCore.framework */,
 				04A9725E189C963300FFE81E /* AudioToolbox.framework */,
 				04A9725C189C962E00FFE81E /* AudioUnit.framework */,
@@ -444,8 +456,8 @@
 			children = (
 				0444E694189C9E8E00F67838 /* YTAudioEngine.h */,
 				0444E695189C9E8E00F67838 /* YTAudioEngine.m */,
-				04A97266189C96F700FFE81E /* EnergyVADSystem.h */,
-				04A97267189C96F700FFE81E /* EnergyVADSystem.m */,
+				04A97266189C96F700FFE81E /* AudioEnergyDetectionSystem.h */,
+				04A97267189C96F700FFE81E /* AudioEnergyDetectionSystem.m */,
 				0444E691189C9DCC00F67838 /* AudioRecieverCircWriter.h */,
 				0444E692189C9DCC00F67838 /* AudioRecieverCircWriter.m */,
 				04A97263189C96ED00FFE81E /* PitchDetector.h */,
@@ -589,7 +601,7 @@
 				04CD558D18B6090A00EE660F /* SearchResultsTableVC.m in Sources */,
 				04A9726B189C970900FFE81E /* TPCircularBuffer.c in Sources */,
 				0482DDF418B309EF00E941FA /* YTDictionaryEntry.m in Sources */,
-				04A97268189C96F700FFE81E /* EnergyVADSystem.m in Sources */,
+				04A97268189C96F700FFE81E /* AudioEnergyDetectionSystem.m in Sources */,
 				044ADCCF18912AC300D3EF25 /* YTAppDelegate.m in Sources */,
 				0444E693189C9DCC00F67838 /* AudioRecieverCircWriter.m in Sources */,
 			);
@@ -721,12 +733,28 @@
 		044ADCEE18912AC300D3EF25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CXX0X_EXTENSIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac/Documents/ProgrammingProjects/AppleDeveloper/Resources,
+					/Users/mac/Documents/ProgrammingProjects/AppleDeveloper/Resources/opencv2.framework,
+					/Users/mac/Documents/ProgrammingProjects/AppleDeveloper/YuTone/YuTone/Libraries,
+					/Users/mac/Documents/ProgrammingProjects/AppleDeveloper/YuTone/YuTone/Libraries/opencv2.framework,
+					/Users/mac/Documents/ProgrammingProjects/AppleDeveloper/YuTone/YuTone,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YuTone/YuTone-Prefix.pch";
-				HEADER_SEARCH_PATHS = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine,
+					Libraries/opencv2.framework/Headers,
+				);
 				INFOPLIST_FILE = "YuTone/YuTone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -741,12 +769,28 @@
 		044ADCEF18912AC300D3EF25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CXX0X_EXTENSIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac/Documents/ProgrammingProjects/AppleDeveloper/Resources,
+					/Users/mac/Documents/ProgrammingProjects/AppleDeveloper/Resources/opencv2.framework,
+					/Users/mac/Documents/ProgrammingProjects/AppleDeveloper/YuTone/YuTone/Libraries,
+					/Users/mac/Documents/ProgrammingProjects/AppleDeveloper/YuTone/YuTone/Libraries/opencv2.framework,
+					/Users/mac/Documents/ProgrammingProjects/AppleDeveloper/YuTone/YuTone,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YuTone/YuTone-Prefix.pch";
-				HEADER_SEARCH_PATHS = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine,
+					Libraries/opencv2.framework/Headers,
+				);
 				INFOPLIST_FILE = "YuTone/YuTone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

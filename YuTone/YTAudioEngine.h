@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PitchDetector.h"
-#import "EnergyVADSystem.h"
+#import "AudioEnergyDetectionSystem.h"
 
 @interface YTAudioEngine : NSObject
 

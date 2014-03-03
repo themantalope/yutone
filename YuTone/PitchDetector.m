@@ -41,6 +41,15 @@
 
 //lazy instantiation
 
+-(NSMutableArray *)detectedCorrCoeffs
+{
+    if (!_detectedCorrCoeffs) {
+        _detectedCorrCoeffs = [[NSMutableArray alloc] init];
+    }
+    
+    return _detectedCorrCoeffs;
+}
+
 -(NSMutableArray *)detectedPitches
 {
     if (!_detectedPitches) {
@@ -119,7 +128,8 @@ float calculatePitchNCCF(id pitchDetectorObj,
                          float * inputData,
                          float samplingRate,
                          float minLag,
-                         float maxLag)
+                         float maxLag,
+                         float * corrCoeff)
 {
     
     PitchDetector * THIS = (PitchDetector *) pitchDetectorObj;
@@ -238,6 +248,8 @@ float calculatePitchNCCF(id pitchDetectorObj,
     
     f0 = 1/f0Per;
     
+    corrCoeff = &curmax;
+    
     
     
     //clear out the vectors
@@ -258,10 +270,15 @@ float calculatePitchNCCF(id pitchDetectorObj,
 -(void)calculatePitchNCCF:(float *)inputData withMinLagInSec:(float)minLag withMaxLagInSec:(float)maxLag
 {
     
+    printf("pitch detector data length : %d\n", self->_totalDataBlockLength);
+    printf("pitch detector analysis length : %d\n", self->_inputDataLength);
+    printf("pitch detector step size : %d\n", self->_overlap);
+    
+    float corr = 0.0f;
     
     for (int i = 0;
          i < self->_totalDataBlockLength - self->_inputDataLength;
-         i += self->_diffInBlockSizeAndOverlap) {
+         i += self->_overlap) {
         
         //first copy data from input to the block
         
@@ -271,10 +288,11 @@ float calculatePitchNCCF(id pitchDetectorObj,
                                 self->_dataBlock,
                                 self->_samplingRate,
                                      minLag,
-                                     maxLag);
+                                     maxLag,
+                                     &corr);
         
         [self.detectedPitches addObject:[NSNumber numberWithFloat:f0]];
-        
+        [self.detectedCorrCoeffs addObject:[NSNumber numberWithFloat:corr]];
     }
     
     

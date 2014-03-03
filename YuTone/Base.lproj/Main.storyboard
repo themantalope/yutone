@@ -119,7 +119,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mxZ-tC-CJp" customClass="CPTGraphHostingView">
-                                <rect key="frame" x="20" y="219" width="280" height="210"/>
+                                <rect key="frame" x="20" y="256" width="280" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>

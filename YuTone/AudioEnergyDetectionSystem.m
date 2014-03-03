@@ -6,15 +6,17 @@
 //  Copyright (c) 2014 Matt. All rights reserved.
 //
 
-#import "EnergyVADSystem.h"
+#import "AudioEnergyDetectionSystem.h"
 #import <Accelerate/Accelerate.h>
+#import <math.h>
 
 
-@interface EnergyVADSystem(){
+@interface AudioEnergyDetectionSystem(){
     int _kProcessingBlockSize;
     int _totalBlockSize;
     int _overlap;
     float * _dataBlock;
+    double * _dataBlockDouble;
 }
 
 
@@ -26,7 +28,7 @@
 
 
 
-@implementation EnergyVADSystem
+@implementation AudioEnergyDetectionSystem
 
 -(NSMutableArray *)packetEnergies
 {
@@ -104,7 +106,9 @@ float detectEnergy(float * array, int arrayLength)
 -(void)detectEnergy:(float *) array
        andAppendToList:(BOOL) yesOrNo
 {
-    
+    printf("energy total size : %d\n", self->_totalBlockSize);
+    printf("energy processing block size : %d\n", self->_kProcessingBlockSize);
+    printf("energy step size : %d\n", self->_overlap);
     
     for (int i = 0; i < self->_totalBlockSize - self->_kProcessingBlockSize; i += self->_overlap) {
         memcpy(self->_dataBlock, array + i, self->_kProcessingBlockSize * sizeof(float));
@@ -176,8 +180,9 @@ float calculateSNRThresh(float * energiesArray, int arrayLength)
     
     float emean = getMeanEnergy(energiesArray, arrayLength);
     float evar = getEnergyVar(energiesArray, arrayLength);
+    float estd = sqrtf(evar);
     
-    SNRThresh = emean/evar;
+    SNRThresh = emean/estd;
     
     return SNRThresh;
 }
@@ -196,6 +201,7 @@ void decisionVAD(float * energiesArray,
         else{
             output[i] = FALSE;
         }
+        
     }
     
 }
@@ -227,18 +233,20 @@ void decisionVAD(float * energiesArray,
     
     free(earray);
     free(decisions);
-    
+    [self.packetEnergies removeAllObjects];
 }
 
 
 -(void)allocateResources;
 {
     self->_dataBlock = calloc(self->_kProcessingBlockSize, sizeof(float));
+    self->_dataBlockDouble = calloc(self->_kProcessingBlockSize, sizeof(double));
 }
 
 -(void)cleanUpResources
 {
     free(self->_dataBlock);
+    free(self->_dataBlockDouble);
 }
 
 -(void)dealloc
