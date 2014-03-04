@@ -743,10 +743,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YuTone/YuTone-Prefix.pch";
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = (
-					Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine,
-					Libraries/opencv2.framework/Headers,
-				);
+				HEADER_SEARCH_PATHS = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine;
 				INFOPLIST_FILE = "YuTone/YuTone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -779,10 +776,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YuTone/YuTone-Prefix.pch";
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = (
-					Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine,
-					Libraries/opencv2.framework/Headers,
-				);
+				HEADER_SEARCH_PATHS = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine;
 				INFOPLIST_FILE = "YuTone/YuTone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
