@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040EA5A018BBAC5900A2E4C5 /* cedict_ts_wpym.u8.starsv in Resources */ = {isa = PBXBuildFile; fileRef = 040EA59F18BBAC5900A2E4C5 /* cedict_ts_wpym.u8.starsv */; };
+		043916AE18C551D500B8A78E /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043916AD18C551D500B8A78E /* opencv2.framework */; };
 		0439EBEA18BDC39A009A3669 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439EBE918BDC39A009A3669 /* libCorePlot-CocoaTouch.a */; };
 		0439EBED18BE4103009A3669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439EBEC18BE4103009A3669 /* QuartzCore.framework */; };
 		0444E693189C9DCC00F67838 /* AudioRecieverCircWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444E692189C9DCC00F67838 /* AudioRecieverCircWriter.m */; };
@@ -27,9 +28,6 @@
 		044ADCE818912AC300D3EF25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 044ADCE618912AC300D3EF25 /* InfoPlist.strings */; };
 		044ADCEA18912AC300D3EF25 /* YuToneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 044ADCE918912AC300D3EF25 /* YuToneTests.m */; };
 		04515E5A189608C2003A9D06 /* ind2sub.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04515E55189608C2003A9D06 /* ind2sub.cpp */; };
-		046AFC7918C4DC3B004B22AA /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046AFC7818C4DC3B004B22AA /* opencv2.framework */; };
-		046AFC7B18C4DC49004B22AA /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 046AFC7A18C4DC49004B22AA /* libc++.dylib */; };
-		046AFC7D18C4DC63004B22AA /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 046AFC7C18C4DC63004B22AA /* libstdc++.dylib */; };
 		0482DDF418B309EF00E941FA /* YTDictionaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0482DDF318B309EF00E941FA /* YTDictionaryEntry.m */; };
 		04A9725A189C95ED00FFE81E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A97259189C95ED00FFE81E /* Accelerate.framework */; };
 		04A9725B189C95F300FFE81E /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A97256189C959500FFE81E /* libTheAmazingAudioEngine.a */; };
@@ -71,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		040EA59F18BBAC5900A2E4C5 /* cedict_ts_wpym.u8.starsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cedict_ts_wpym.u8.starsv; sourceTree = "<group>"; };
+		043916AD18C551D500B8A78E /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		0439EB9B18BDC39A009A3669 /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
 		0439EB9C18BDC39A009A3669 /* CPTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimation.h; sourceTree = "<group>"; };
 		0439EB9D18BDC39A009A3669 /* CPTAnimationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimationOperation.h; sourceTree = "<group>"; };
@@ -176,9 +175,6 @@
 		044ADCE918912AC300D3EF25 /* YuToneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YuToneTests.m; sourceTree = "<group>"; };
 		04515E55189608C2003A9D06 /* ind2sub.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ind2sub.cpp; sourceTree = "<group>"; };
 		04515E56189608C2003A9D06 /* ind2sub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ind2sub.h; sourceTree = "<group>"; };
-		046AFC7818C4DC3B004B22AA /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../Resources/opencv2.framework/opencv2.framework; sourceTree = "<group>"; };
-		046AFC7A18C4DC49004B22AA /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		046AFC7C18C4DC63004B22AA /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		0482DDF218B309EF00E941FA /* YTDictionaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTDictionaryEntry.h; sourceTree = "<group>"; };
 		0482DDF318B309EF00E941FA /* YTDictionaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTDictionaryEntry.m; sourceTree = "<group>"; };
 		04A97251189C959400FFE81E /* TheAmazingAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TheAmazingAudioEngine.xcodeproj; path = Libraries/TheAmazingAudioEngine/TheAmazingAudioEngine.xcodeproj; sourceTree = "<group>"; };
@@ -210,12 +206,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				046AFC7D18C4DC63004B22AA /* libstdc++.dylib in Frameworks */,
-				046AFC7B18C4DC49004B22AA /* libc++.dylib in Frameworks */,
-				046AFC7918C4DC3B004B22AA /* opencv2.framework in Frameworks */,
 				0439EBED18BE4103009A3669 /* QuartzCore.framework in Frameworks */,
 				04A9725F189C963300FFE81E /* AudioToolbox.framework in Frameworks */,
 				04A9725B189C95F300FFE81E /* libTheAmazingAudioEngine.a in Frameworks */,
+				043916AE18C551D500B8A78E /* opencv2.framework in Frameworks */,
 				04A9725A189C95ED00FFE81E /* Accelerate.framework in Frameworks */,
 				044ADCC118912AC300D3EF25 /* CoreGraphics.framework in Frameworks */,
 				044ADCC318912AC300D3EF25 /* UIKit.framework in Frameworks */,
@@ -354,9 +348,7 @@
 		044ADCBD18912AC300D3EF25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				046AFC7C18C4DC63004B22AA /* libstdc++.dylib */,
-				046AFC7A18C4DC49004B22AA /* libc++.dylib */,
-				046AFC7818C4DC3B004B22AA /* opencv2.framework */,
+				043916AD18C551D500B8A78E /* opencv2.framework */,
 				0439EBEC18BE4103009A3669 /* QuartzCore.framework */,
 				04A9725E189C963300FFE81E /* AudioToolbox.framework */,
 				04A9725C189C962E00FFE81E /* AudioUnit.framework */,
